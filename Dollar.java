@@ -5,7 +5,7 @@ public class Dollar extends Currency{
 	}
 	private String currencyType = "Dollar";
 	
-	public void add(Currency c) {		
+	public void add(Dollar c) {		
 		if(c.currencyWhole > 0) {
 			currencyWhole += c.currencyWhole;
 			//convert all calculations to cents
@@ -18,7 +18,7 @@ public class Dollar extends Currency{
 		}
 	}
 	
-	public void subtract(Currency c) {
+	public void subtract(Dollar c) {
 		if(c.currencyWhole > 0 && !isGreater(c)) {
 			currencyWhole -= c.currencyWhole;
 			//convert all calculations to cents
@@ -30,13 +30,13 @@ public class Dollar extends Currency{
 			
 		}
 	}
-	public Boolean isEqual(Currency c) {
+	public Boolean isEqual(Dollar c) {
 		if(currencyWhole==c.currencyWhole && currencyFrac==c.currencyFrac) {
 			return true;
 		}
 		return false;
 	}
-	public Boolean isGreater(Currency c) {
+	public Boolean isGreater(Dollar c) {
 		if(currencyWhole == c.currencyWhole) {
 			if(currencyFrac<c.currencyFrac)
 				return true;
@@ -47,7 +47,7 @@ public class Dollar extends Currency{
 		}
 		return false;
 	}
-	public void print(Currency c) {	
+	public void print(Dollar c) {	
 		System.out.println(c.currencyWhole + "." + c.currencyFrac);
 	}
 
