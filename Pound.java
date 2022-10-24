@@ -3,7 +3,7 @@ public class Pound extends Currency{
 	
 	private String currencyType = "Pound";
 
-	public void add(Currency c) {
+	public void add(Pound c) {
 		if(c.currencyWhole > 0) {
 			currencyWhole += c.currencyWhole;
 			//convert all calculations to cents
@@ -16,7 +16,7 @@ public class Pound extends Currency{
 		}
 	}
 	
-	public void subtract(Currency c) {
+	public void subtract(Pound c) {
 		if(c.currencyWhole > 0 && !isGreater(c)) {
 			currencyWhole -= c.currencyWhole;
 			//convert all calculations to cents
@@ -28,13 +28,13 @@ public class Pound extends Currency{
 			
 		}
 	}
-	public Boolean isEqual(Currency c) {
+	public Boolean isEqual(Pound c) {
 		if(currencyWhole==c.currencyWhole && currencyFrac==c.currencyFrac) {
 			return true;
 		}
 		return false;
 	}
-	public Boolean isGreater(Currency c) {
+	public Boolean isGreater(Pound c) {
 		if(currencyWhole == c.currencyWhole) {
 			if(currencyFrac<c.currencyFrac)
 				return true;
@@ -45,7 +45,7 @@ public class Pound extends Currency{
 		}
 		return false;
 	}
-	public void print(Currency c) {	
+	public void print(Pound c) {	
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + " " + currencyType);
 	}
 	@Override
