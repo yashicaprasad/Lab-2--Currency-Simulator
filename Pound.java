@@ -3,29 +3,33 @@ public class Pound extends Currency{
 	
 	private String currencyType = "Pound";
 
-	public void add(Pound c) {
-		if(c.currencyWhole > 0) {
-			currencyWhole += c.currencyWhole;
-			//convert all calculations to cents
-			int netCents = currencyWhole*100 + currencyFrac + c.currencyFrac;
-			currencyWhole = netCents/100;
-			currencyFrac = netCents%100;
+	public void add(Pound c) {	
+		try {
+			if(c.currencyWhole > 0) {
+				currencyWhole += c.currencyWhole;
+				//convert all calculations to cents
+				int netCents = currencyWhole*100 + currencyFrac + c.currencyFrac;
+				currencyWhole = netCents/100;
+				currencyFrac = netCents%100;
+			}
 		}
-		else {
-			
+		catch(Exception e) {
+			System.out.println("Invalid addition");
 		}
 	}
 	
 	public void subtract(Pound c) {
-		if(c.currencyWhole > 0 && !isGreater(c)) {
-			currencyWhole -= c.currencyWhole;
-			//convert all calculations to cents
-			int netCents = currencyWhole*100 + currencyFrac + c.currencyFrac;
-			currencyWhole = netCents/100;
-			currencyFrac = netCents%100;
+		try {
+			if(c.currencyWhole > 0 && !isGreater(c)) {
+				currencyWhole -= c.currencyWhole;
+				//convert all calculations to cents
+				int netCents = currencyWhole*100 + currencyFrac - c.currencyFrac;
+				currencyWhole = netCents/100;
+				currencyFrac = netCents%100;
+			}			
 		}
-		else {
-			
+		catch(Exception e) {
+			System.out.println("Invalid subtraction");
 		}
 	}
 	public Boolean isEqual(Pound c) {
