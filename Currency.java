@@ -20,7 +20,8 @@ public abstract class Currency {
 	
 	//Default Construction
 	public Currency(){
-		
+		currencyWhole = 0;
+		currencyFrac = 0;
 	}
 	//Construction with type double as input
 	public Currency(double amt){
