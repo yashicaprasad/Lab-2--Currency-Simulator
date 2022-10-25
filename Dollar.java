@@ -1,3 +1,9 @@
+/*
+Lab 2
+Yashica Prasad and Lois Wong
+Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
+ */
+
 
 public class Dollar extends Currency{
 	Dollar(){
@@ -19,7 +25,7 @@ public class Dollar extends Currency{
 		currencyWhole = netCents / 100
 		currencyFrac = netCents % 100
 
-	else throw invalidAddition exception c.currencyWhole <= 0
+	else throw exception e c.currencyWhole <= 0
 	 */
 	public void add(Dollar c) {		
 		try {
@@ -54,7 +60,7 @@ public class Dollar extends Currency{
 			currencyWhole = netCents / 100
 			currencyFrac = netCents % 100
 
-	else throw invalidAddition exception c.currencyWhole <= 0
+	else throw exception e c.currencyWhole <= 0
 	 */
 	public void subtract(Dollar c) {
 		try {
@@ -88,18 +94,12 @@ public class Dollar extends Currency{
 		}
 		return false;
 	}
-	public Boolean isEqual(Dollar c) {
-		if(currencyWhole==c.currencyWhole && currencyFrac==c.currencyFrac) {
-			return true;
-		}
-		return false;
-	}
 	/*
 		isGreater()
 		Purpose: checks if the input object's balance is greater than the original (previous object's) balance
 		Pre: takes a Dollar object as input
 		Post: N/A
-		Return: returns true if if input object's balance > previous/original balance
+		Return: returns true if input object's balance > previous/original balance
 
 	isGreater() pseudocode
 		if (currencyWhole == c.currencyWhole)
@@ -141,7 +141,6 @@ public class Dollar extends Currency{
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void subtract() {
 		// TODO Auto-generated method stub
