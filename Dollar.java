@@ -52,7 +52,7 @@ public class Dollar extends Currency{
 		return false;
 	}
 	public void print(Dollar c) {	
-		System.out.println(c.currencyWhole + "." + c.currencyFrac);
+		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
 
 	@Override
