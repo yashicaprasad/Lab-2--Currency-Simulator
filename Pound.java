@@ -1,6 +1,16 @@
 
 public class Pound extends Currency{
+	public Pound(){
+		super();
+	}
 	
+	public Pound(double amt) {
+        	super(amt);
+    	}
+
+	public Pound(Pound c){
+		super(c);
+	}
 	private String currencyType = "Pound";
 	/*
 	add()
