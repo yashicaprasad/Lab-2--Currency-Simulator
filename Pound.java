@@ -4,7 +4,17 @@ Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
 public class Pound extends Currency{
+	public Pound(){
+		super();
+	}
 	
+	public Pound(double amt) {
+        	super(amt);
+    	}
+
+	public Pound(Pound c){
+		super(c);
+	}
 	private String currencyType = "Pound";
 	/*
 	add()

@@ -4,10 +4,17 @@ Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
 
-
 public class Dollar extends Currency{
-	Dollar(){
+	public Dollar(){
 		super();
+	}
+	
+	public Dollar(double amt) {
+        	super(amt);
+    	}
+
+	public Dollar(Dollar c){
+		super(c);
 	}
 	private String currencyType = "Dollar";
 	
