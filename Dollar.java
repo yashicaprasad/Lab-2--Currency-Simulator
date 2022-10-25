@@ -127,14 +127,10 @@ public class Dollar extends Currency{
 		Pre: takes a Dollar object as input
 		Post: N/A
 		Return: N/A
-=======
+
 	public void print(Dollar c) {	
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
->>>>>>> main
-
-	isGreater() pseudocode
-	System.out.println(c.currencyWhole + "." + c.currencyFrac);
 	 */
 	public void print(Dollar c) {	
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
