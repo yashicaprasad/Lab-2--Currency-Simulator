@@ -1,18 +1,22 @@
-
+/*
+Lab 2
+Yashica Prasad and Lois Wong
+Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
+ */
 public class Pound extends Currency{
 	
 	private String currencyType = "Pound";
 	/*
 	add()
 	Purpose: adds an input object of the same currency type
-	Pre: takes a Dollar object as input
+	Pre: takes a Pound object as input
 	Post: currencyWhole and currencyFrac are updated / added to
 	Return: N/A
 
 	pseudocode
 	if (c.currencyWhole > 0)
 		currencyWhole += c.currencyWhole
-		int netCents = currencyWhole * 100 + currencyFrac + c.currencyFrac //total value in cents
+		int netCents = currencyWhole * 100 + currencyFrac + c.currencyFrac //total value in pence
 		currencyWhole = netCents / 100
 		currencyFrac = netCents % 100
 
@@ -35,7 +39,7 @@ public class Pound extends Currency{
 	/*
 	subtract()
 	Purpose: subtracts an input object of the same currency type
-	Pre: takes a Dollar object as input
+	Pre: takes a Pound object as input
 	Post: currencyWhole and currencyFrac are updated / subtracted from
 	Return: N/A
 
@@ -51,7 +55,7 @@ public class Pound extends Currency{
 			currencyWhole = netCents / 100
 			currencyFrac = netCents % 100
 
-	else throw invalidAddition exception c.currencyWhole <= 0
+	else throw exception e c.currencyWhole <= 0
 	 */
 	public void subtract(Pound c) {
 		try {
@@ -70,7 +74,7 @@ public class Pound extends Currency{
 	/*
 	isEqual()
 	Purpose: checks if the input object's balance is equal to the original (previous object's) balance
-	Pre: takes a Dollar object as input
+	Pre: takes a Pound object as input
 	Post: N/A
 	Return: returns true if (currencyWhole == c.currencyWhole && currencyFrac == c.currencyFrac)
 
@@ -88,9 +92,9 @@ public class Pound extends Currency{
 	/*
 	isGreater()
 	Purpose: checks if the input object's balance is greater than the original (previous object's) balance
-	Pre: takes a Dollar object as input
+	Pre: takes a Pound object as input
 	Post: N/A
-	Return: returns true if if input object's balance > previous/original balance
+	Return: returns true if input object's balance > previous/original balance
 
 	isGreater() pseudocode
 		if (currencyWhole == c.currencyWhole)
@@ -115,11 +119,11 @@ public class Pound extends Currency{
 	/*
 	print()
 	Purpose: prints the balance and currency of the input object
-	Pre: takes a Dollar object as input
+	Pre: takes a Pound object as input
 	Post: N/A
 	Return: N/A
 
-	public void print(Dollar c) {	
+	public void print(Pound c) {
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
 	 */
