@@ -1,4 +1,8 @@
-
+/*
+Lab 2
+Yashica Prasad and Lois Wong
+Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
+ */
 public abstract class Currency {
 	//Class Variables
 	protected int currencyWhole;
