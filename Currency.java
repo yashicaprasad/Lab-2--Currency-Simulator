@@ -53,7 +53,7 @@ public abstract class Currency {
 		String doubleAsString = String.valueOf(amt);
 		int indexOfDecimal = doubleAsString.indexOf(".");
 		currencyWhole = Integer.parseInt(doubleAsString.substring(0, indexOfDecimal));
-		currencyFrac = Integer.parseInt(doubleAsString.substring(indexOfDecimal));
+		currencyFrac = Integer.parseInt(doubleAsString.substring(indexOfDecimal + 1));
 	}
 	//Copy Constructor
 	public Currency(Currency c){
