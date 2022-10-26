@@ -41,10 +41,14 @@ public class Lab2Main {
 						if (Objects.equals(separatedInput[0], "a"))
 						{
 							p1.add();
+							System.out.println("whole: " + p1.getCurrencyWhole());
+							System.out.println("frac: " + p1.getCurrencyFrac());
 						}
 						if(Objects.equals(separatedInput[0], "s"))
 						{
 							p1.subtract();
+							System.out.println("whole: " + p1.getCurrencyWhole());
+							System.out.println("frac: " + p1.getCurrencyFrac());
 						}
 					}
 					if(Objects.equals(separatedInput[1], "d"))
@@ -52,10 +56,14 @@ public class Lab2Main {
 						if(Objects.equals(separatedInput[0], "a"))
 						{
 							d1.add();
+							System.out.println("whole: " + d1.getCurrencyWhole());
+							System.out.println("frac: " + d1.getCurrencyFrac());
 						}
 						if(Objects.equals(separatedInput[0], "s"))
 						{
 							d1.subtract();
+							System.out.println("whole: " + d1.getCurrencyWhole());
+							System.out.println("frac: " + d1.getCurrencyFrac());
 						}
 					}
 				}
