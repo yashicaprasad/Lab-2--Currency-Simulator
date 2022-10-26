@@ -8,7 +8,28 @@ public abstract class Currency {
 	protected int currencyWhole;
 	protected int currencyFrac;
 	
-	//Getter Setters
+	/*
+	setters
+	Purpose: assign value to specified variables
+	Pre: Takes an int value as input
+	Post: Sets the value of currencyWhole or currencyFrac
+	Return: N/A
+
+	pseudocode:
+	this.currencyFrac = currencyFrac;
+	 */
+
+	/*
+	getters
+	Purpose: get the value of specified variables
+	Pre: N/A
+	Post: N/A
+	Return: the int value of the specified variable
+
+	pseudocode:
+	return currencyFrac;
+
+	 */
 	public int getCurrencyWhole() {
 		return currencyWhole;
 	}
@@ -39,7 +60,6 @@ public abstract class Currency {
 		currencyWhole = c.currencyWhole;
 		currencyFrac =  c.currencyFrac;
 	}
-	
 	public abstract void add();
 	
 	public abstract void subtract();
@@ -51,7 +71,6 @@ public abstract class Currency {
 	public abstract void print();
 	
 	//Destructor
-	protected void finalize(){  
-	
+	protected void finalize(){
 	}  
 }
