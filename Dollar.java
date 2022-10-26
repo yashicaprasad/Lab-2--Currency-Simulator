@@ -17,23 +17,51 @@ public class Dollar extends Currency{
 		super(c);
 	}
 	private String currencyType = "Dollar";
-	
+
 	/*
-	add()
-	Purpose: adds an input object of the same currency type
-	Pre: takes a Dollar object as input
-	Post: currencyWhole and currencyFrac are updated / added to
+	setter
+	Purpose: assign value to currencyType
+	Pre: Takes a String value as input
+	Post: Sets the value of currencyType
 	Return: N/A
 
-	pseudocode
-	if (c.currencyWhole > 0)
-		currencyWhole += c.currencyWhole
-		int netCents = currencyWhole * 100 + currencyFrac + c.currencyFrac //total value in cents
-		currencyWhole = netCents / 100
-		currencyFrac = netCents % 100
+	pseudocode:
+	this.currencyType = currencyType;
 
-	else throw exception e c.currencyWhole <= 0
+	getter
+	Purpose: get the value of currencyType
+	Pre: N/A
+	Post: N/A
+	Return: the value of currencyType
+
+	pseudocode:
+	return currencyType;
+
 	 */
+	public String getCurrencyType() {
+		return currencyType;
+	}
+
+	public void setCurrencyType(String currencyType) {
+		this.currencyType = currencyType;
+	}
+
+	/*
+        add()
+        Purpose: adds an input object of the same currency type
+        Pre: takes a Dollar object as input
+        Post: currencyWhole and currencyFrac are updated / added to
+        Return: N/A
+
+        pseudocode
+        if (c.currencyWhole > 0)
+            currencyWhole += c.currencyWhole
+            int netCents = currencyWhole * 100 + currencyFrac + c.currencyFrac //total value in cents
+            currencyWhole = netCents / 100
+            currencyFrac = netCents % 100
+
+        else throw exception e if c.currencyWhole <= 0
+         */
 	public void add(Dollar c) {		
 		try {
 			if(c.currencyWhole > 0) {
@@ -56,18 +84,18 @@ public class Dollar extends Currency{
 	Return: N/A
 
 	subrract() pseudocode
-	if (c.currencyWhole > 0 && !isGreater (c))
+	if (c.currencyWhole > 0 && !isGreater(c))
 
 		if (isEqual(c))
 			currencyWhole = 0
 			currencyFrac = 0
 		else
 			currencyWhole -= c.currencyWhole
-			int netCents = currenchWhole * 100 + currencyFrac - c.currencyFrac //total value in cents
+			int netCents = currencyWhole * 100 + currencyFrac - c.currencyFrac //total value in cents
 			currencyWhole = netCents / 100
 			currencyFrac = netCents % 100
 
-	else throw exception e c.currencyWhole <= 0
+	else throw exception e if c.currencyWhole <= 0 or !isGreater(c)
 	 */
 	public void subtract(Dollar c) {
 		try {
@@ -85,10 +113,10 @@ public class Dollar extends Currency{
 	}
 	/*
 		isEqual()
-		Purpose: checks if the input object's balance is equal to the original (previous object's) balance
+		Purpose: checks if the input object's balance is equal or inequal
 		Pre: takes a Dollar object as input
 		Post: N/A
-		Return: returns true if (currencyWhole == c.currencyWhole && currencyFrac == c.currencyFrac)
+		Return: true if (currencyWhole == c.currencyWhole && currencyFrac == c.currencyFrac)
 
 	isEqual() pseudocode
 		if (currencyWhole == c.currencyWhole && currencyFrac == c.currencyFrac)
@@ -103,10 +131,10 @@ public class Dollar extends Currency{
 	}
 	/*
 		isGreater()
-		Purpose: checks if the input object's balance is greater than the original (previous object's) balance
+		Purpose: checks if the input object's balance is greater
 		Pre: takes a Dollar object as input
 		Post: N/A
-		Return: returns true if input object's balance > previous/original balance
+		Return: true if input object's balance is greater
 
 	isGreater() pseudocode
 		if (currencyWhole == c.currencyWhole)
