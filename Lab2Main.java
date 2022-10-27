@@ -19,6 +19,8 @@ public class Lab2Main {
 
 		Dollar d1 = new Dollar(0.00);
 		Pound p1 = new Pound(0.00);
+		p1.print();
+		d1.print();
 
 		for(int i = 0; i > -1; i++) {
 			Scanner myObj = new Scanner(System.in);
@@ -33,18 +35,13 @@ public class Lab2Main {
 			else {
 				if (Objects.equals(separatedInput[3], "dollar"))
 				{
-					//debugging
-					System.out.println("Creating Dollar");
 					d1 = new Dollar(Double.parseDouble(separatedInput[2]));
-					firstpound.print();
-					firstdollar.print();
+					//firstpound.print();
+					//firstdollar.print();
 				}
 				if(Objects.equals(separatedInput[3], "pound"))
 				{
-					System.out.println("Creating Pound");
 					p1 = new Pound(Double.parseDouble(separatedInput[2]));
-					firstpound.print();
-					firstdollar.print();
 
 				}
 				
@@ -59,6 +56,8 @@ public class Lab2Main {
 						}
 						else {
 							System.out.println("Invalid addition");
+							firstpound.print();
+							firstdollar.print();
 						}
 					}
 					if(Objects.equals(separatedInput[0], "s"))
@@ -70,6 +69,8 @@ public class Lab2Main {
 						}
 						else {
 							System.out.println("Invalid subtraction");
+							firstpound.print();
+							firstdollar.print();
 						}
 					}
 				}
@@ -85,6 +86,8 @@ public class Lab2Main {
 						}
 						else {
 							System.out.println("Invalid addition");
+							firstpound.print();
+							firstdollar.print();
 						}
 
 					}
@@ -97,6 +100,8 @@ public class Lab2Main {
 						}
 						else {
 							System.out.println("Invalid subtraction");
+							firstpound.print();
+							firstdollar.print();
 						}
 					}
 				}
