@@ -65,12 +65,15 @@ public class Dollar extends Currency{
          */
 	public void add(Dollar c) {		
 		try {
-			if(c.currencyWhole > 0) {
+			if(c.currencyWhole >= 0) {
 				currencyWhole += c.currencyWhole;
 				//convert all calculations to cents
 				int netCents = currencyWhole*100 + currencyFrac + c.currencyFrac;
 				currencyWhole = netCents/100;
 				currencyFrac = netCents%100;
+			}
+			else {
+				System.out.println("Invalid addition");
 			}
 		}
 		catch(Exception e) {
@@ -100,13 +103,16 @@ public class Dollar extends Currency{
 	 */
 	public void subtract(Dollar c) {
 		try {
-			if(c.currencyWhole > 0 && !isGreater(c)) {
+			if(c.currencyWhole >= 0 && !isGreater(c)) {
 				currencyWhole -= c.currencyWhole;
 				//convert all calculations to cents
 				int netCents = currencyWhole*100 + currencyFrac - c.currencyFrac;
 				currencyWhole = netCents/100;
 				currencyFrac = netCents%100;
-			}			
+			}	
+			else {
+				System.out.println("Invalid subtraction");
+			}
 		}
 		catch(Exception e) {
 			System.out.println("Invalid subtraction");

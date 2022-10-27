@@ -52,33 +52,52 @@ public class Lab2Main {
 				{
 					if(Objects.equals(separatedInput[0], "a"))
 					{
-						firstdollar.add(d1);
-						firstpound.print();
-						firstdollar.print();
+						if(Objects.equals(separatedInput[3], "dollar")) {
+							firstdollar.add(d1);
+							firstpound.print();
+							firstdollar.print();
+						}
+						else {
+							System.out.println("Invalid addition");
+						}
 					}
 					if(Objects.equals(separatedInput[0], "s"))
 					{
-						firstdollar.subtract(d1);
-						firstpound.print();
-						firstdollar.print();
-
+						if(Objects.equals(separatedInput[3], "dollar")) {
+							firstdollar.subtract(d1);
+							firstpound.print();
+							firstdollar.print();
+						}
+						else {
+							System.out.println("Invalid subtraction");
+						}
 					}
 				}
 				
-				if(Objects.equals(separatedInput[1], "p"))
+				if(Objects.equals(separatedInput[1], "p") & Objects.equals(separatedInput[3], "pound"))
 				{
 					if (Objects.equals(separatedInput[0], "a"))
 					{
-						firstpound.add(p1);
-						firstpound.print();
-						firstdollar.print();
+						if(Objects.equals(separatedInput[3], "pound")) {
+							firstpound.add(p1);
+							firstpound.print();
+							firstdollar.print();
+						}
+						else {
+							System.out.println("Invalid addition");
+						}
 
 					}
 					if(Objects.equals(separatedInput[0], "s"))
 					{
-						firstpound.subtract(p1);
-						firstpound.print();
-						firstdollar.print();
+						if(Objects.equals(separatedInput[3], "dollar")) {
+							firstpound.subtract(p1);
+							firstpound.print();
+							firstdollar.print();
+						}
+						else {
+							System.out.println("Invalid subtraction");
+						}
 					}
 				}
 				
