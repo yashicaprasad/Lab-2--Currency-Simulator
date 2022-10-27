@@ -56,7 +56,6 @@ public abstract class Currency {
 	public Currency(double amt){
         DecimalFormat df = new DecimalFormat("#######0.00");
 		String doubleAsString = df.format(amt);
-		System.out.println("doubleAsString" + doubleAsString);
 		int indexOfDecimal = doubleAsString.indexOf(".");
 		currencyWhole = Integer.parseInt(doubleAsString.substring(0, indexOfDecimal));
 		char[] ch = doubleAsString.toCharArray();
