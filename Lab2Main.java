@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class Lab2Main {
 	public static void main(String[] args) {
 		Currency[] currencyArr = new Currency[2]; //array of references
-		currencyArr[0] = new Pound();
-		currencyArr[1] = new Dollar();
-
-		Dollar d1 = null;
 		Pound p1 = null;
+		Dollar d1 = null;
+
+		currencyArr[0] = p1;
+		currencyArr[1] = d1;
 
 		for(int i = 0; i > -1; i++) {
 			Scanner myObj = new Scanner(System.in);
@@ -28,27 +28,26 @@ public class Lab2Main {
 			else {
 					if (Objects.equals(separatedInput[3], "dollar"))
 					{
-						//debugging
-						System.out.println(Double.parseDouble(separatedInput[2]));
 						d1 = new Dollar(Double.parseDouble(separatedInput[2]));
+						System.out.println(d1.getCurrencyWhole() + "." + d1.getCurrencyFrac() + "Dollar");
 					}
+
 					if(Objects.equals(separatedInput[3], "pound"))
 					{
 						p1 = new Pound(Double.parseDouble(separatedInput[2]));
+						System.out.println(p1.getCurrencyWhole() + "." + p1.getCurrencyFrac() + "Pound");
 					}
 					if(Objects.equals(separatedInput[1], "p"))
 					{
 						if (Objects.equals(separatedInput[0], "a"))
 						{
 							p1.add();
-							System.out.println("whole: " + p1.getCurrencyWhole());
-							System.out.println("frac: " + p1.getCurrencyFrac());
+							System.out.println(p1.getCurrencyWhole() + "." + p1.getCurrencyFrac() + "Pound");
 						}
 						if(Objects.equals(separatedInput[0], "s"))
 						{
 							p1.subtract();
-							System.out.println("whole: " + p1.getCurrencyWhole());
-							System.out.println("frac: " + p1.getCurrencyFrac());
+							System.out.println(p1.getCurrencyWhole() + "." + p1.getCurrencyFrac() + "Pound");
 						}
 					}
 					if(Objects.equals(separatedInput[1], "d"))
@@ -56,14 +55,12 @@ public class Lab2Main {
 						if(Objects.equals(separatedInput[0], "a"))
 						{
 							d1.add();
-							System.out.println("whole: " + d1.getCurrencyWhole());
-							System.out.println("frac: " + d1.getCurrencyFrac());
+							System.out.println(d1.getCurrencyWhole() + "." + d1.getCurrencyFrac() + "Dollar");
 						}
 						if(Objects.equals(separatedInput[0], "s"))
 						{
 							d1.subtract();
-							System.out.println("whole: " + d1.getCurrencyWhole());
-							System.out.println("frac: " + d1.getCurrencyFrac());
+							System.out.println(d1.getCurrencyWhole() + "." + d1.getCurrencyFrac() + "Dollar");
 						}
 					}
 				}
