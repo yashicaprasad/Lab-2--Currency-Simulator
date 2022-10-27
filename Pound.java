@@ -147,7 +147,7 @@ public class Pound extends Currency{
 	}
 	 */
 	public void print() {	
-		System.out.println(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType);
+		System.out.print(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType + " " );
 	}
 	@Override
 	public void add() {
