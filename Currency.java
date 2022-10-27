@@ -3,6 +3,10 @@ Lab 2
 Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
+package com.deanza.lab2;
+
+import java.text.DecimalFormat;
+
 public abstract class Currency {
 	//Class Variables
 	protected int currencyWhole;
@@ -50,7 +54,7 @@ public abstract class Currency {
 	}
 	//Construction with type double as input
 	public Currency(double amt){
-        	DecimalFormat df = new DecimalFormat("#######0.00");
+        DecimalFormat df = new DecimalFormat("#######0.00");
 		String doubleAsString = df.format(amt);
 		System.out.println("doubleAsString" + doubleAsString);
 		int indexOfDecimal = doubleAsString.indexOf(".");

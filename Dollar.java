@@ -3,6 +3,7 @@ Lab 2
 Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
+package com.deanza.lab2;
 
 public class Dollar extends Currency{
 	public Dollar(){
@@ -167,10 +168,9 @@ public class Dollar extends Currency{
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
 	 */
-	public void print(Dollar c) {	
-		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
+	public void print() {	
+		System.out.println(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType);
 	}
-
 	@Override
 	public void add() {
 		// TODO Auto-generated method stub
@@ -194,10 +194,6 @@ public class Dollar extends Currency{
 		return null;
 	}
 
-	@Override
-	public void print() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
