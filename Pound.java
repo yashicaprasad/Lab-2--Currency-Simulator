@@ -3,6 +3,8 @@ Lab 2
 Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
+package com.deanza.lab2;
+
 public class Pound extends Currency{
 	public Pound(){
 		super();
@@ -32,14 +34,18 @@ public class Pound extends Currency{
 
 	else throw invalidAddition exception c.currencyWhole <= 0
 	 */
+	
 	public void add(Pound c) {	
 		try {
-			if(c.currencyWhole > 0) {
+			if(c.currencyWhole >= 0) {
 				currencyWhole += c.currencyWhole;
 				//convert all calculations to cents
 				int netCents = currencyWhole*100 + currencyFrac + c.currencyFrac;
 				currencyWhole = netCents/100;
 				currencyFrac = netCents%100;
+			}
+			else {
+				System.out.println("Invalid addition");
 			}
 		}
 		catch(Exception e) {
@@ -69,13 +75,16 @@ public class Pound extends Currency{
 	 */
 	public void subtract(Pound c) {
 		try {
-			if(c.currencyWhole > 0 && !isGreater(c)) {
+			if(c.currencyWhole >= 0 && !isGreater(c)) {
 				currencyWhole -= c.currencyWhole;
 				//convert all calculations to cents
 				int netCents = currencyWhole*100 + currencyFrac - c.currencyFrac;
 				currencyWhole = netCents/100;
 				currencyFrac = netCents%100;
-			}			
+			}	
+			else {
+				System.out.println("Invalid subtraction");
+			}
 		}
 		catch(Exception e) {
 			System.out.println("Invalid subtraction");
@@ -137,8 +146,8 @@ public class Pound extends Currency{
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
 	 */
-	public void print(Pound c) {	
-		System.out.println(c.currencyWhole + "." + c.currencyFrac + " " + currencyType);
+	public void print() {	
+		System.out.print(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType + " " );
 	}
 	@Override
 	public void add() {
@@ -159,11 +168,6 @@ public class Pound extends Currency{
 	public Boolean isGreater() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	@Override
-	public void print() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
