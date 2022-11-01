@@ -130,16 +130,12 @@ public class SinglyLinkedList {
 
 	/*
 	Purpose: Get the count of Currency nodes in the list
-	Pre: Takes in a SinglyLinkedList object as input
+	Pre: N/A
 	Post: N/A
 	Returns: Integer count of Currency nodes in the list
 
 	pseudocode
 
-	public int countCurrency(SinglyLinkedList list)
-		return list.count;
-
-	or
 	public int countCurrency(SinglyLinkedList list)
 		int count = 0;
 		LinkNode currentNode = this.start;
@@ -158,6 +154,24 @@ public class SinglyLinkedList {
 			currentNode = currentNode.next;
 		}
 		return i;
+	}
+
+	/*
+	isListEmpty
+	purpose: tell whether a list is empty or not
+	pre: N/A
+	post: N/A
+	return: a bool indicating whether a list is empty or not
+	 */
+
+	public boolean islistEmpty()
+	{
+		LinkNode currentNode = this.start;
+		if(currentNode == null)
+		{
+			return true;
+		}
+		return false;
 	}
 
 
