@@ -31,9 +31,10 @@ public class SinglyLinkedList {
 	public SinglyLinkedList() {
 
 	}
-	/*
+
 	public void removeCurrency(int key) {
 		// if the index is out of range, exit
+		int size = this.countCurrency();
 		if (key > size || key <= 0) {
 		}
 		if (key == 1) {
@@ -51,12 +52,10 @@ public class SinglyLinkedList {
 				crunchifyCurrent.next = crunchifyCurrent.next.next;
 			}
 			// decrement the number of elements variable
-			size--;
+			this.countCurrency()--;
 
 		}
 	}
-	
-	*/
 	
 	/*
     Purpose: Return the Currency object at desired index
