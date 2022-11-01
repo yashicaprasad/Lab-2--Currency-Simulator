@@ -3,7 +3,7 @@ Lab 2
 Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
-package com.deanza.lab2;
+
 
 public class Dollar extends Currency{
 	public Dollar(){

@@ -4,7 +4,6 @@ Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
 
-package com.deanza.lab2;
 import java.util.Objects;
 import java.util.Scanner;
 
