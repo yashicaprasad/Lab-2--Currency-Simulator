@@ -25,7 +25,9 @@ public class Lab3Main {
 		System.out.println("\n" + a.findCurrency(c));
 		a.printList();
 		
-		System.out.println("\n" + a.getCurrency(0));
+		//System.out.println("\n" + a.Currency(0));
 		a.printList();
+
+		System.out.println("\ncountCurrency: " + a.countCurrency());
 	}
 }
