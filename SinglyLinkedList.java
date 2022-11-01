@@ -31,6 +31,7 @@ public class SinglyLinkedList {
 	public SinglyLinkedList() {
 
 	}
+
 	public void removeCurrency(int key) {
 		// if the index is out of range, exit
 		int size = this.countCurrency();
@@ -69,8 +70,8 @@ public class SinglyLinkedList {
     int i = 0
     while(i < index)
         currentNode = currentNode.getNext()
-        i ++
-    return currentNode.getData()
+        i++
+    return currentNode.data()
      */
 
     public Currency getCurrency(int index)
@@ -99,11 +100,15 @@ public class SinglyLinkedList {
 
     pseudocode:
     int index = 0
-    Node current = head;
+    LinkNode currentNode = this.start;
     while(current != null)
-        if(current.equals(currencyObj)
+        if(current.data.equals(currencyObj)
             return index
-    return SinglyLinkedList.indexOf(currencyObj);
+        else
+        	index++
+        	currentNode = currentNode.next
+   	print "Object is not found"
+   	return -1
      */
 	
     public int findCurrency(Currency currencyObj)
@@ -116,11 +121,12 @@ public class SinglyLinkedList {
             if(currentNode.data.equals(currencyObj))
             {
                 return index;
-            }else {
+            }
+			else
+			{
             	index++;
                 currentNode = currentNode.next;
             }
-            
         }
         System.out.println("Object is not found");
         return -1;
@@ -134,13 +140,12 @@ public class SinglyLinkedList {
 
 	pseudocode
 
-	public int countCurrency(SinglyLinkedList list)
-		int count = 0;
-		LinkNode currentNode = this.start;
-		if(currentNode != null)
-			count++
-			currentNode = currentNode.next
-		return count;
+	int i = 0;
+	LinkNode currentNode = this.start;
+	while(currentNode != null)
+		i++
+		currentNode = currentNode.next
+	return i;
 */
 
 	public int countCurrency() {
@@ -160,9 +165,15 @@ public class SinglyLinkedList {
 	pre: N/A
 	post: N/A
 	return: a bool indicating whether a list is empty or not
+
+	pseudocode
+	LinkNode currentNode = this.start;
+	if(currentNode == null)
+		return true
+	return false
 	 */
 
-	public boolean islistEmpty()
+	public boolean isListEmpty()
 	{
 		LinkNode currentNode = this.start;
 		if(currentNode == null)
