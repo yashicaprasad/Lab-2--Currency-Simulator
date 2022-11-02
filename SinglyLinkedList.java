@@ -1,8 +1,8 @@
 
 public class SinglyLinkedList {
-	LinkNode start;
-	LinkNode end;
-	int count;
+	private LinkNode start;
+	private LinkNode end;
+	private int count = 0;
 
 	public LinkNode getStart() {
 		return start;
@@ -10,6 +10,7 @@ public class SinglyLinkedList {
 
 	public void setStart(LinkNode start) {
 		this.start = start;
+		this.count++;
 	}
 
 	public LinkNode getEnd() {
@@ -18,6 +19,7 @@ public class SinglyLinkedList {
 
 	public void setEnd(LinkNode end) {
 		this.end = end;
+		this.count++;
 	}
 
 	public int getCount() {
@@ -39,20 +41,23 @@ public class SinglyLinkedList {
 			System.out.println("Index out of bounds");
 		}
 		else if (key == 1) {
-			this.start = this.start.next;
+			this.start = this.start.getNext();
 		}
 
 		LinkNode crunchifyCurrent = this.start;
 		if (this.start != null & key > 1) {
-			for (int i = 0; i < key - 2; i++) {
-				crunchifyCurrent = crunchifyCurrent.next;
+			for (int i = 1; i < key - 1; i++) {
+				crunchifyCurrent = crunchifyCurrent.getNext();
+				System.out.println("i=" + i);
 			}
-			if (crunchifyCurrent.next == null) {
+			if (crunchifyCurrent.getNext() == null) {
 			} else {
-				crunchifyCurrent.next = crunchifyCurrent.next.next;
+				crunchifyCurrent.setNext(crunchifyCurrent.getNext().getNext());
+				this.countCurrency();
+				this.printList();
 			}
 			// decrement the number of elements variable
-			count--;
+			this.count--;
 
 		}
 	}
@@ -86,10 +91,10 @@ public class SinglyLinkedList {
         int i = 1;
         while (i < index)
         {
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
             i++;
         }
-        return currentNode.data;
+        return currentNode.getData();
     }
     
 	/*
@@ -118,14 +123,14 @@ public class SinglyLinkedList {
 
         while(currentNode != null)
         {
-            if(currentNode.data.equals(currencyObj))
+            if(currentNode.getData().equals(currencyObj))
             {
                 return index;
             }
 			else
 			{
             	index++;
-                currentNode = currentNode.next;
+                currentNode = currentNode.getNext();
             }
         }
         System.out.println("Object is not found");
@@ -154,7 +159,7 @@ public class SinglyLinkedList {
 
 		while (currentNode != null) {
 			i++;
-			currentNode = currentNode.next;
+			currentNode = currentNode.getNext();
 		}
 		return i;
 	}
@@ -191,11 +196,12 @@ public class SinglyLinkedList {
 		// CASE 1:
 		// If head node itself holds the key to be deleted
 
-		if (currNode != null && currNode.data == key) {
-			this.start = currNode.next; // Changed head
-
+		if (currNode != null && currNode.getData() == key) {
+			this.start = currNode.getNext(); // Changed head
+			this.count--;
 			// Display the message
 			System.out.println(key + " found and deleted");
+			this.count--;
 
 		}
 
@@ -205,11 +211,11 @@ public class SinglyLinkedList {
 		// Search for the key to be deleted,
 		// keep track of the previous node
 		// as it is needed to change currNode.next
-		while (currNode != null && currNode.data != key) {
+		while (currNode != null && currNode.getData() != key) {
 			// If currNode does not hold key
 			// continue to next node
 			prev = currNode;
-			currNode = currNode.next;
+			currNode = currNode.getNext();			
 		}
 
 		// If the key was present, it should be at currNode
@@ -217,8 +223,8 @@ public class SinglyLinkedList {
 		if (currNode != null) {
 			// Since the key is at currNode
 			// Unlink currNode from linked list
-			prev.next = currNode.next;
-
+			prev.setNext(currNode.getNext());
+			this.count--;
 			// Display the message
 			System.out.println(key + " found and deleted");
 		}
@@ -237,42 +243,76 @@ public class SinglyLinkedList {
 	public void addCurrency(int position, Currency data) {
 		//create new node.
 	    LinkNode node = new LinkNode();
-	    node.data = data;
-	    node.next = null;
+	    node.setData(data);
+	    node.setNext(null);
 
 	    if (this.start == null) {
 	      //if head is null and position is zero then exit.
-	      if (position != 0) {
+	      if (position != 1) {
+	       System.out.println("Out of bound exception: List is empty");
 	       return;
-	      } else { //node set to the head.
+	      } 
+	      else { //node set to the head.
 	       this.start = node;
+	       this.end = node;
+		      System.out.println("Added first element to empty list");
+		      this.count++;
+			  return;
 	      }
 	    }
 
-	    if (start != null && position == 0) {
-	      node.next = this.start;
+	    if (start != null && position == 1) {
+	      node.setNext(this.start);
 	      this.start = node;
-	      return;
+	      System.out.println("Added first element existing list");
+	      this.count++;
+		  return;
 	    }
 
-	    LinkNode current = this.start;
-	    LinkNode previous = null;
+	    if (start != null && position == this.getCount()+1) {
+	    	this.end.setNext(node);
+	    	this.setEnd(node);
+		    System.out.println("Added end element existing list");
+		    this.count++;
+			return;
+		}
+	    
+	    if (start != null && position > this.getCount()+1) {
+		   System.out.println("Out of bound exception : Index is more then current element " + this.countCurrency());
+		   return;
+		}
 
-	    int i = 0;
+	    LinkNode current = this.getStart();
+	    
+	    if (start != null && position < this.getCount()+1) {
+	    	for(int i=1;i < position-1; i++) {
+	    		current = current.getNext();
+	    	}
+	    	node.setNext(current.getNext());
+	    	current.setNext(node);
+	    	this.getEnd().setNext(null);
+		      System.out.println("Added middle element to existing list");
+		      this.count++;
+			  return;
+		}
 
-	    while (i < position) {
-	      previous = current;
-	      current = current.next;
+	  
 
-	      if (current == null) {
-	        break;
-	      }
+//	    while (i < position) {
+//	      previous = current;
+//	      current = current.getNext();
+//
+//	      if (current == null) {
+//	        break;
+//	      }
+//
+//	       i++;
+//	      }
 
-	       i++;
-	      }
+//	      node.setNext(current);
+//	      previous.setNext(node);
 
-	      node.next = current;
-	      previous.next = node;
+
 	}
 
 	// Method to print the LinkedList.
@@ -284,10 +324,10 @@ public class SinglyLinkedList {
 		// Traverse through the LinkedList
 		while (currNode != null) {
 			// Print the data at current node
-			currNode.data.print();
+			currNode.getData().print();
 
 			// Go to next node
-			currNode = currNode.next;
+			currNode = currNode.getNext();
 		}
 	}
 

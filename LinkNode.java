@@ -1,10 +1,28 @@
 
 public class LinkNode {
-	Currency data;
-	LinkNode next;
+	private Currency data;
+	private LinkNode next;
+	
+	public Currency getData() {
+		return data;
+	}
+
+	public void setData(Currency data) {
+		this.data = data;
+	}
+
+	public LinkNode getNext() {
+		return next;
+	}
+
+	public void setNext(LinkNode next) {
+		this.next = next;
+	}
+
+	
 
     // Constructor
-	LinkNode(Currency d)
+	public LinkNode(Currency d)
     {
         data = d;
         next = null;
