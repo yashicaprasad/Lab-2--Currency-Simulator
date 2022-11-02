@@ -16,8 +16,6 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     LinkNode newNode = new LinkNode(currencyObj);
-    LinkNode head = this.start;
-    LinkNode tail = this.end;
     LinkNode currentNode = this.start;
 
     if (head == null)
@@ -33,12 +31,10 @@ public class Queue extends SinglyLinkedList{
     public void enQueue(Currency currencyObj)
     {
         LinkNode newNode = new LinkNode(currencyObj);
-        LinkNode head = this.start;
-        LinkNode tail = this.end;
         LinkNode currentNode = this.start;
 
 
-        if (head == null)
+        if (start == null)
         {
             setStart(newNode);
             setEnd(newNode);
@@ -69,6 +65,7 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if(start == null)
+        System.out.println("Queue is empty");
         return null;
     else
         Currency temp = getStart().data;
@@ -93,7 +90,83 @@ public class Queue extends SinglyLinkedList{
     }
 
     /*
-    
+    purpose: return copy of Currency object at front of queue
+    pre: N/A
+    post: N/A
+    return: Currency object at front of queue
+
+    pseudocode
+
+    if(start == null)
+        System.out.println("Queue is empty");
+        return null;
+    else
+        return getStart().data;
      */
+
+    public Currency peekFront()
+    {
+        if(start == null)
+        {
+            System.out.println("Queue is empty");
+            return null;
+        }
+        else
+        {
+            System.out.println("returning object at front");
+            return getStart().data;
+        }
+    }
+
+    /*
+    purpose: return copy of Currency object at end of queue
+    pre: N/A
+    post: N/A
+    return: Currency object at end of queue
+
+    pseudocode
+
+    if(start == null)
+        System.out.println("Queue is empty");
+        return null;
+    else
+        return getEnd().data;
+     */
+    public Currency peekRear() {
+        if (start == null) {
+            System.out.println("Queue is empty");
+            return null;
+        } else {
+            System.out.println("returning object at rear");
+            return getEnd().data;
+        }
+    }
+
+
+    /*
+    purpose: return a string signifying the contents of the que
+    pre: N/A
+    post: N/A
+    return: a string signifying the contents of the que from front to end, tab spaced
+
+    pseudocode
+
+    Currency currentObj = start;
+    while currentObj != null
+        System.out.printf(\tcurrentObj.data);
+     */
+
+    public void printQueue()
+        {
+            LinkNode currentNode = this.start;
+
+            while(currentNode != null)
+            {
+                System.out.printf("%-20s", currentNode.data);
+                currentNode = currentNode.next;
+
+            }
+
+        }
 
 }
