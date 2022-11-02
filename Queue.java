@@ -1,11 +1,8 @@
 public class Queue extends SinglyLinkedList{
-
     public Queue()
     {
         super();
     }
-
-    public void createQueue() {} //optional
 
     /* enqueue
     Purpose
@@ -32,8 +29,7 @@ public class Queue extends SinglyLinkedList{
     {
         LinkNode newNode = new LinkNode(currencyObj);
         LinkNode currentNode = this.start;
-
-
+        
         if (start == null)
         {
             setStart(newNode);
@@ -132,16 +128,19 @@ public class Queue extends SinglyLinkedList{
     else
         return getEnd().data;
      */
-    public Currency peekRear() {
-        if (start == null) {
+    public Currency peekRear()
+    {
+        if (start == null)
+        {
             System.out.println("Queue is empty");
             return null;
-        } else {
+        }
+        else
+        {
             System.out.println("returning object at rear");
             return getEnd().data;
         }
     }
-
 
     /*
     purpose: return a string signifying the contents of the que
@@ -151,9 +150,10 @@ public class Queue extends SinglyLinkedList{
 
     pseudocode
 
-    Currency currentObj = start;
-    while currentObj != null
-        System.out.printf(\tcurrentObj.data);
+    LinkNode currentNode = this.start;
+    while(currentNode != null)
+        System.out.printf("%-20s", currentNode.data);
+        currentNode = currentNode.next;
      */
 
     public void printQueue()
@@ -164,7 +164,6 @@ public class Queue extends SinglyLinkedList{
             {
                 System.out.printf("%-20s", currentNode.data);
                 currentNode = currentNode.next;
-
             }
 
         }
