@@ -15,7 +15,11 @@ public class Driver {
 		System.out.println("c");
 		queueObj.enQueue(c);
 
-		System.out.println(queueObj.dequeue());
+		//System.out.println(queueObj.dequeue());
+		System.out.println("peekFront: " + queueObj.peekFront());
+		System.out.println("peekRear: " + queueObj.peekRear());
+		System.out.print("printQueue: ");
+		queueObj.printQueue();
 
 		/*
 		//Testing LinkNode
