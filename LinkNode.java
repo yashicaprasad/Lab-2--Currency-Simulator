@@ -9,4 +9,8 @@ public class LinkNode {
         data = d;
         next = null;
     }
+
+	public LinkNode() {
+		// TODO Auto-generated constructor stub
+	}
 }

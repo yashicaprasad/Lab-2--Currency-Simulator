@@ -36,23 +36,23 @@ public class SinglyLinkedList {
 		// if the index is out of range, exit
 		int size = this.countCurrency();
 		if (key > size || key <= 0) {
+			System.out.println("Index out of bounds");
 		}
-		if (key == 1) {
+		else if (key == 1) {
 			this.start = this.start.next;
 		}
 
 		LinkNode crunchifyCurrent = this.start;
-		if (this.start != null) {
+		if (this.start != null & key > 1) {
 			for (int i = 0; i < key - 2; i++) {
 				crunchifyCurrent = crunchifyCurrent.next;
 			}
 			if (crunchifyCurrent.next == null) {
 			} else {
-
 				crunchifyCurrent.next = crunchifyCurrent.next.next;
 			}
 			// decrement the number of elements variable
-			this.countCurrency()--;
+			count--;
 
 		}
 	}
@@ -76,14 +76,14 @@ public class SinglyLinkedList {
 
     public Currency getCurrency(int index)
     {
-        if (index < 0 /*|| index >= count*/)
+        if (index < 1 /*|| index >= count*/)
         {
             System.out.println("Invalid index value");
             return null;
         }
 
         LinkNode currentNode = start;
-        int i = 0;
+        int i = 1;
         while (i < index)
         {
             currentNode = currentNode.next;
@@ -113,7 +113,7 @@ public class SinglyLinkedList {
 	
     public int findCurrency(Currency currencyObj)
     {
-        int index = 0;
+        int index = 1;
         LinkNode currentNode = this.start;
 
         while(currentNode != null)
@@ -234,51 +234,57 @@ public class SinglyLinkedList {
 	}
 
 	// Method to insert a new node at a given index value
-	public LinkNode addCurrency(int position, Currency data) {
-		LinkNode head = this.start;
-		if (position < 1)
-			System.out.print("Invalid position");
+	public void addCurrency(int position, Currency data) {
+		//create new node.
+	    LinkNode node = new LinkNode();
+	    node.data = data;
+	    node.next = null;
 
-		// if position is 1 then new node is
-		// set infornt of head node
-		// head node is changing.
-		LinkNode newNode = new LinkNode(data);
-		if (position == 1) {
+	    if (this.start == null) {
+	      //if head is null and position is zero then exit.
+	      if (position != 0) {
+	       return;
+	      } else { //node set to the head.
+	       this.start = node;
+	      }
+	    }
 
-			newNode.next = this.start;
-			head = newNode;
-		} else {
-			while (position-- != 0) {
-				if (position == 1) {
-					// adding Node at required position
+	    if (start != null && position == 0) {
+	      node.next = this.start;
+	      this.start = node;
+	      return;
+	    }
 
-					// Making the new Node to point to
-					// the old Node at the same position
-					newNode.next = this.start.next;
+	    LinkNode current = this.start;
+	    LinkNode previous = null;
 
-					// Replacing current with new Node
-					// to the old Node to point to the new Node
-					this.start.next = newNode;
-					break;
-				}
-				this.start = this.start.next;
-			}
-			if (position != 1)
-				System.out.print("Position out of range");
-		}
-		return head;
+	    int i = 0;
+
+	    while (i < position) {
+	      previous = current;
+	      current = current.next;
+
+	      if (current == null) {
+	        break;
+	      }
+
+	       i++;
+	      }
+
+	      node.next = current;
+	      previous.next = node;
 	}
 
 	// Method to print the LinkedList.
 	public void printList() {
 		LinkNode currNode = this.start;
 
-		System.out.print("LinkedList: ");
+		System.out.print("\nLinkedList: " + "\n");
 
 		// Traverse through the LinkedList
 		while (currNode != null) {
 			// Print the data at current node
-			System.out.print(currNode.data + " ");
+			currNode.data.print();
 
 			// Go to next node
 			currNode = currNode.next;

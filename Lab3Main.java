@@ -5,29 +5,36 @@ public class Lab3Main {
 		Currency b = new Dollar(11.75);
 		Currency c = new Dollar(12.50);
 		Currency d = new Dollar(10.50);
+		Currency e = new Dollar(13.47);
+		Currency f = new Dollar(9.33);
+		Currency g = new Dollar(7.12);
 		LinkNode test0 = new LinkNode(c);
 		LinkNode test1 = new LinkNode(d);
 		test0.next = test1;
 		
-		System.out.println("Print: " + test0.data.currencyWhole);
-		System.out.println("Print: " + test1.data.currencyWhole);
 		
-		//Testing SinglyLinkedList
+		//Testing SinglyLinkedList methods
+		//Initialize a list
 		SinglyLinkedList a = new SinglyLinkedList();
 		a.start = test0;
 		a.end = test1;
-		System.out.println("Print a: ");
+		//add more stuff to 'a'
+		a.addCurrency(1, b);
+		a.addCurrency(2, e);
+		a.addCurrency(3, f);
+		a.addCurrency(3, g);
+		System.out.println("Print a with all elements: ");
 		a.printList();
-		a.addCurrency(2, b);
-		System.out.println("\n"+ "Print a: ");
+		//findCurrency(c)
+		System.out.println("FindCurrency(e)" + a.findCurrency(e));
 		a.printList();
-
-		System.out.println("\n" + a.findCurrency(c));
+		//removeCurrency(e)
+		a.removeCurrency(e);
 		a.printList();
-		
-		//System.out.println("\n" + a.Currency(0));
+		//removeCurrency(2)
+		a.removeCurrency(2);
 		a.printList();
-
+		//a.countCurrency()
 		System.out.println("\ncountCurrency: " + a.countCurrency());
 	}
 }
