@@ -3,25 +3,29 @@ public class Driver {
 	public static void main(String[] args) {
 		//testing Queue
 
-		Currency a = new Pound(12.34);
-		Currency b = new Pound(34.56);
-		Currency c = new Pound(34.45);
+		Currency a = new Pound(11.11);
+		Currency b = new Pound(22.22);
+		Currency c = new Pound(33.33);
 
 		Queue queueObj = new Queue();
-		System.out.println("a");
+		System.out.println("enqueue a");
 		queueObj.enQueue(a);
-		System.out.println("b");
+		System.out.println("\nenqueue b");
 		queueObj.enQueue(b);
-		System.out.println("c");
+		System.out.println("\nenqueue c");
 		queueObj.enQueue(c);
 
-		//System.out.println(queueObj.dequeue());
+		System.out.println("\ndequeue");
+		System.out.println(queueObj.dequeue());
+
 		System.out.println("peekFront: " + queueObj.peekFront());
 		System.out.println("peekRear: " + queueObj.peekRear());
-		System.out.print("printQueue: ");
-		queueObj.printQueue();
+
+		System.out.print("printQueue \n");
+		System.out.println(queueObj.printQueue());
 
 		/*
+
 		//Testing LinkNode
 		Currency b = new Dollar(11.75);
 		Currency c = new Dollar(12.50);
@@ -42,6 +46,7 @@ public class Driver {
 		a.addCurrency(2, b);
 		System.out.println("\n"+ "Print a: ");
 		a.printList();
+
 
 		System.out.println("\n Find Currency: " + a.findCurrency(c));
 		a.printList();
