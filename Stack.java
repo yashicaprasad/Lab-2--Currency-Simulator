@@ -13,17 +13,22 @@ public class Stack extends SinglyLinkedList {
 	// Utility function to check if the stack is empty or
 	// not
 	public boolean isEmpty() {
-	//	return top == null;
+		if(this.countCurrency()==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	// Utility function to return top element in a stack
-	public int peek() {
+	public LinkNode peek() {
 		// check for empty stack
 		if (!isEmpty()) {
-			return top.data;
+			return this.getStart();
 		} else {
 			System.out.println("Stack is empty");
-			return -1;
+			return null;
 		}
 	}
 
@@ -31,32 +36,27 @@ public class Stack extends SinglyLinkedList {
 	public void pop() // remove at the beginning
 	{
 		// check for stack underflow
-		if (top == null) {
+		if (this.getStart() == null) {
 			System.out.print("\nStack Underflow");
 			return;
 		}
 
-		// update the top pointer to point to the next node
-		top = (top).link;
+		// Remove the top element from Singly LinkedList
+		this.removeCurrency(1);
+		// Alternate way to move the Start/Top element to next and reduce the count
+//		this.setStart(this.getStart().getNext());
+//		this.setCount(this.getCount()-1);
+		System.out.print("\nRemaining Nodes: " + this.getCount());
+		
 	}
 
 	public void display() {
 		// check for stack underflow
-		if (top == null) {
+		if (this.getStart() == null) {
 			System.out.printf("\nStack Underflow");
-			exit(1);
+			return;
 		} else {
-			Node temp = top;
-			while (temp != null) {
-
-				// print node data
-				System.out.print(temp.data);
-
-				// assign temp link to temp
-				temp = temp.link;
-				if (temp != null)
-					System.out.print(" -> ");
-			}
+			this.printList();
 		}
 	}
 }
