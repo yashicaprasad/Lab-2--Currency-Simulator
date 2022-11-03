@@ -28,26 +28,27 @@ public class Queue extends SinglyLinkedList{
     public void enQueue(Currency currencyObj)
     {
         LinkNode newNode = new LinkNode(currencyObj);
-        LinkNode currentNode = this.start;
+        LinkNode currentNode = this.getStart();
         
-        if (start == null)
+        if (this.getStart() == null)
         {
             setStart(newNode);
             setEnd(newNode);
-            System.out.println(getStart() + " = start");
-            System.out.println(getEnd() + " = end");
+            this.getStart().getData().print();
+            this.getEnd().getData().print();
         }
         else
         {
-            while(currentNode != null)
+            while(currentNode.getNext() != null) {
+                currentNode = currentNode.getNext();
+            }
+            if (currentNode.getNext() == null)
             {
-                currentNode = currentNode.next;
-                if (currentNode == null)
-                {
-                    setEnd(newNode);
-                    System.out.println(getStart() + " = start");
-                    System.out.println(getEnd() + " = end");
-                }
+                currentNode.setNext(newNode);
+                setEnd(newNode);
+                this.getStart().getData().print();
+                this.getEnd().getData().print();
+                this.printList();
             }
         }
     }
@@ -71,14 +72,14 @@ public class Queue extends SinglyLinkedList{
      */
     public Currency dequeue()
     {
-        if(start == null)
+        if(this.getStart() == null)
         {
             System.out.println("Queue is empty");
             return null;
         }
         else
         {
-            Currency temp = getStart().data;
+            Currency temp = getStart().getData();
             removeCurrency(1);
             System.out.println("returning temp");
             return temp;
@@ -102,7 +103,7 @@ public class Queue extends SinglyLinkedList{
 
     public Currency peekFront()
     {
-        if(start == null)
+        if(this.getStart() == null)
         {
             System.out.println("Queue is empty");
             return null;
@@ -110,7 +111,7 @@ public class Queue extends SinglyLinkedList{
         else
         {
             System.out.println("returning object at front");
-            return getStart().data;
+            return getStart().getData();
         }
     }
 
@@ -130,7 +131,7 @@ public class Queue extends SinglyLinkedList{
      */
     public Currency peekRear()
     {
-        if (start == null)
+        if (this.getStart() == null)
         {
             System.out.println("Queue is empty");
             return null;
@@ -138,7 +139,7 @@ public class Queue extends SinglyLinkedList{
         else
         {
             System.out.println("returning object at rear");
-            return getEnd().data;
+            return getEnd().getData();
         }
     }
 
@@ -158,12 +159,12 @@ public class Queue extends SinglyLinkedList{
 
     public void printQueue()
         {
-            LinkNode currentNode = this.start;
+            LinkNode currentNode = this.getStart();
 
             while(currentNode != null)
             {
-                System.out.printf("%-20s", currentNode.data);
-                currentNode = currentNode.next;
+                System.out.printf("%-20s", currentNode.getData());
+                currentNode = currentNode.getNext();
             }
 
         }
