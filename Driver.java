@@ -1,6 +1,7 @@
 
 public class Driver {
 	public static void main(String[] args) {
+		/*
 		//testing Queue
 
 		Currency a = new Pound(11.11);
@@ -23,8 +24,6 @@ public class Driver {
 
 		System.out.print("printQueue \n");
 		System.out.println(queueObj.printQueue());
-
-		/*
 
 		//Testing LinkNode
 		Currency b = new Dollar(11.75);
@@ -55,7 +54,7 @@ public class Driver {
 		a.printList();
 
 		System.out.println("countCurrency: " + a.countCurrency());
-		*/
 
+		 */
 	}
 }
