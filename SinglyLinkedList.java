@@ -54,7 +54,6 @@ public class SinglyLinkedList {
 			} else {
 				crunchifyCurrent.setNext(crunchifyCurrent.getNext().getNext());
 				this.countCurrency();
-				this.printList();
 			}
 			// decrement the number of elements variable
 			this.count--;
@@ -81,7 +80,7 @@ public class SinglyLinkedList {
 
     public Currency getCurrency(int index)
     {
-        if (index < 1 /*|| index >= count*/)
+        if (index < 1 || index >= count)
         {
             System.out.println("Invalid index value");
             return null;
@@ -264,6 +263,7 @@ public class SinglyLinkedList {
 	    if (start != null && position == 1) {
 	      node.setNext(this.start);
 	      this.start = node;
+		  this.end = node;
 	      System.out.println("Added first element existing list");
 	      this.count++;
 		  return;
@@ -271,11 +271,13 @@ public class SinglyLinkedList {
 
 	    if (start != null && position == this.getCount()+1) {
 	    	this.end.setNext(node);
-	    	this.setEnd(node);
+	    	this.end = node;
 		    System.out.println("Added end element existing list");
 		    this.count++;
 			return;
 		}
+
+
 	    
 	    if (start != null && position > this.getCount()+1) {
 		   System.out.println("Out of bound exception : Index is more then current element " + this.countCurrency());
@@ -283,9 +285,10 @@ public class SinglyLinkedList {
 		}
 
 	    LinkNode current = this.getStart();
-	    
+
+
 	    if (start != null && position < this.getCount()+1) {
-	    	for(int i=1;i < position-1; i++) {
+	    	for(int i=1;i < position-2; i++) {
 	    		current = current.getNext();
 	    	}
 	    	node.setNext(current.getNext());
