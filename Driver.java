@@ -1,6 +1,7 @@
 
 public class Driver {
 	public static void main(String[] args) {
+
 		//testing Queue
 
 		Currency a = new Pound(11.11);
@@ -24,8 +25,6 @@ public class Driver {
 		System.out.print("printQueue \n");
 		System.out.println(queueObj.printQueue());
 
-		/*
-
 		//Testing LinkNode
 		Currency b = new Dollar(11.75);
 		Currency c = new Dollar(12.50);
@@ -37,6 +36,7 @@ public class Driver {
 		System.out.println("Print: " + test0.data.currencyWhole);
 		System.out.println("Print: " + test1.data.currencyWhole);
 
+		/*
 		//Testing SinglyLinkedList
 		SinglyLinkedList a = new SinglyLinkedList();
 		a.start = test0;
