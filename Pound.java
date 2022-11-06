@@ -1,7 +1,12 @@
 /*
-Lab 2
+Lab 3
 Yashica Prasad and Lois Wong
 Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
+ */
+
+/*
+ * The print method has been changed in Currency, Dollar, and Pound to return a String instead of containing a print statement
+ * This was done in order to return tab spaced Lists
  */
 
 public class Pound extends Currency{
@@ -145,8 +150,9 @@ public class Pound extends Currency{
 		System.out.println(c.currencyWhole + "." + c.currencyFrac + currencyType);
 	}
 	 */
-	public void print() {	
-		System.out.print(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType + " " );
+	public String print() {	
+		System.out.println(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType);
+		return this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType;
 	}
 	@Override
 	public void add() {

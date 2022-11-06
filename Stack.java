@@ -1,3 +1,8 @@
+/*
+Lab 3
+Yashica Prasad and Lois Wong
+Purpose of the assignment: Demonstrate use of stacks, queues, and linked lists
+ */
 
 public class Stack extends SinglyLinkedList {
 	// Utility function to add an element x in the stack
@@ -6,9 +11,25 @@ public class Stack extends SinglyLinkedList {
 		// create new node temp and allocate memory
 		//LinkNode temp = new LinkNode(x);
 		
-		this.addCurrency(1, x);
+		this.addCurrency(0, x);
 
 	}
+	
+	public String printStack() {
+		String stackItems = "";
+		if (this.getStart() == null) {
+//                System.out.println("Queue is empty");
+			return null;
+		} else {
+			LinkNode currentNode = this.getStart();
+			while (currentNode != null) {
+				stackItems = stackItems.concat(currentNode.getData().print() + "\t");
+				currentNode = currentNode.getNext();
+			}
+		}
+		return stackItems;
+}
+
 
 	// Utility function to check if the stack is empty or
 	// not
@@ -22,10 +43,10 @@ public class Stack extends SinglyLinkedList {
 	}
 
 	// Utility function to return top element in a stack
-	public LinkNode peek() {
+	public Currency peek() {
 		// check for empty stack
 		if (!isEmpty()) {
-			return this.getStart();
+			return this.getStart().getData();
 		} else {
 			System.out.println("Stack is empty");
 			return null;
@@ -42,11 +63,10 @@ public class Stack extends SinglyLinkedList {
 		}
 
 		// Remove the top element from Singly LinkedList
-		this.removeCurrency(1);
+		this.removeCurrency(0);
 		// Alternate way to move the Start/Top element to next and reduce the count
 //		this.setStart(this.getStart().getNext());
 //		this.setCount(this.getCount()-1);
-		System.out.print("\nRemaining Nodes: " + this.getCount());
 		
 	}
 
