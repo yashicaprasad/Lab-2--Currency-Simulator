@@ -27,7 +27,7 @@ public class Queue extends SinglyLinkedList{
     else
         while(currentNode.getNext() != null)
             currentNode = currentNode.getNext();
-            if (currentNode.getNext() == null)
+        if (currentNode.getNext() == null)
                 currentNode.setNext(newNode);
                 setEnd(newNode);
      */
@@ -66,7 +66,6 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if(this.getStart() == null)
-        print("Queue is empty")
         return null;
     else
         Currency temp = this.getStart().getData();
@@ -100,7 +99,6 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if(this.getStart() == null)
-         print("Queue is empty")
         return null;
     else
         return this.getStart().data;
@@ -129,7 +127,6 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if (this.getStart() == null)
-        print("Queue is empty");
         return null;
     else
         return this.getEnd().getData();
@@ -158,12 +155,11 @@ public class Queue extends SinglyLinkedList{
 
     String queueItems = "";
     if(this.getStart() == null)
-        print("Queue is empty");
         return null;
     else
         LinkNode currentNode = this.getStart();
         while (currentNode != null)
-            queueItems = queueItems.concat(currentNode.getData().toString() + "\t");
+            queueItems = queueItems.concat(currentNode.getData().print() + "\t");
             currentNode = currentNode.getNext();
     return queueItems;
 
