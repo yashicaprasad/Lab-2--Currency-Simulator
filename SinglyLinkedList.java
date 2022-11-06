@@ -282,17 +282,21 @@ public class SinglyLinkedList {
 
 	// Method to print the LinkedList.
 	public String printList() {
-		LinkNode currNode = this.start;
-
-		// Traverse through the LinkedList
-		while (currNode != null) {
-			// Print the data at current node
-			currNode.getData().print();
-
-			// Go to next node
-			currNode = currNode.getNext();
-		}
-		return null;
+		 String listItems = "";
+         if(this.getStart() == null)
+         {
+//             System.out.println("Queue is empty");
+             return null;
+         }
+         else
+         {
+             LinkNode currentNode = this.getStart();
+             while (currentNode != null)
+             {
+            	 listItems = listItems.concat(currentNode.getData().print() + "\t");
+                 currentNode = currentNode.getNext();
+             }
+         }
+         return listItems;
 	}
-
 }
