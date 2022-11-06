@@ -1,7 +1,7 @@
 /*
-Lab 2
+Lab 3
 Yashica Prasad and Lois Wong
-Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
+Purpose of the assignment: Demonstrate use of stacks, queues, and linked lists
  */
 
 import java.text.DecimalFormat;
@@ -73,7 +73,7 @@ public abstract class Currency {
 	
 	public abstract Boolean isGreater();
 	
-	public abstract void print();
+	public abstract String print();
 	
 	//Destructor
 	protected void finalize(){

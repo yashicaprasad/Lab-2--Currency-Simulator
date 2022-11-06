@@ -1,3 +1,9 @@
+/*
+Lab 3
+Yashica Prasad and Lois Wong
+Purpose of the assignment: Demonstrate use of stacks, queues, and linked lists
+ */
+
 public class Queue extends SinglyLinkedList{
     public Queue()
     {
@@ -34,7 +40,7 @@ public class Queue extends SinglyLinkedList{
         {
             setStart(newNode);
             setEnd(newNode);
-            this.printList();
+//            this.printList();
         }
         else
         {
@@ -46,7 +52,7 @@ public class Queue extends SinglyLinkedList{
             {
                 currentNode.setNext(newNode);
                 setEnd(newNode);
-                this.printList();
+//                this.printList();
             }
         }
     }
@@ -71,16 +77,16 @@ public class Queue extends SinglyLinkedList{
     {
         if(this.getStart() == null)
         {
-            System.out.println("Queue is empty");
+//            System.out.println("Queue is empty");
             return null;
         }
         else
         {
             Currency temp = this.getStart().getData();
-            removeCurrency(1);
-            System.out.println("removing object at front");
-            this.printList();
-            System.out.println("\nreturning temp");
+            removeCurrency(0);
+//            System.out.println("removing object at front");
+//            this.printList();
+//            System.out.println("\nreturning temp");
             return temp;
         }
     }
@@ -104,12 +110,12 @@ public class Queue extends SinglyLinkedList{
     {
         if(this.getStart() == null)
         {
-            System.out.println("Queue is empty");
+//            System.out.println("Queue is empty");
             return null;
         }
         else
         {
-            System.out.println("returning object at front");
+//            System.out.println("returning object at front");
             return this.getStart().getData();
         }
     }
@@ -132,12 +138,12 @@ public class Queue extends SinglyLinkedList{
     {
         if (this.getStart() == null)
         {
-            System.out.println("Queue is empty");
+//            System.out.println("Queue is empty");
             return null;
         }
         else
         {
-            System.out.println("returning object at rear");
+//            System.out.println("returning object at rear");
             return this.getEnd().getData();
         }
     }
@@ -168,7 +174,7 @@ public class Queue extends SinglyLinkedList{
             String queueItems = "";
             if(this.getStart() == null)
             {
-                System.out.println("Queue is empty");
+//                System.out.println("Queue is empty");
                 return null;
             }
             else
@@ -176,7 +182,7 @@ public class Queue extends SinglyLinkedList{
                 LinkNode currentNode = this.getStart();
                 while (currentNode != null)
                 {
-                    queueItems = queueItems.concat(currentNode.getData().toString() + "\t");
+                    queueItems = queueItems.concat(currentNode.getData().print() + "\t");
                     currentNode = currentNode.getNext();
                 }
             }
