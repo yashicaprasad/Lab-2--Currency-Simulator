@@ -8,6 +8,26 @@ public class SinglyLinkedList {
 	private LinkNode start;
 	private LinkNode end;
 	private int count = 0;
+	
+	/*
+	setter purpose: Sets the data to input data  
+	pre: takes in a LinkNode or int object 
+	post: sets this.data = input data 
+	return: N/A 
+	
+	pseudocode
+	this.data = data;
+	*/ 
+	
+	/*
+	getter purpose: retrieves desired data
+	pre: N/A
+	post: N/A 
+	return: the data requested 
+	
+	pseudocode
+	return data; 
+	*/ 
 
 	public LinkNode getStart() {
 		return start;
@@ -38,6 +58,34 @@ public class SinglyLinkedList {
 	public SinglyLinkedList() {
 
 	}
+	
+	/*
+	removeCurrency purpose: removes the specified Currency object from the list
+	pre: int index value 
+	post: removes specified Currency object from the list 
+	return: true or false 
+	
+	pseudocode for integer input 
+	
+	int size = this.countCurrency();
+		if (key >= size || key < 0) 
+			return false
+		else if (key == 0)
+			this.start = this.start.getNext()
+			return true
+		
+		LinkNode crunchifyCurrent = this.start;
+		if (this.start != null & key > 0) 
+			for (int i = 0; i < key - 1; i++) 
+				crunchifyCurrent = crunchifyCurrent.getNext();
+			if (crunchifyCurrent.getNext() == null) 
+			else 
+				crunchifyCurrent.setNext(crunchifyCurrent.getNext().getNext());
+				this.countCurrency();			
+			this.count--;
+			return true;
+		return false;
+	*/ 
 
 	public boolean removeCurrency(int key) {
 		// if the index is out of range, exit
@@ -69,14 +117,24 @@ public class SinglyLinkedList {
 	}
 
 	/*
-	 * Purpose: Return the Currency object at desired index Pre: Takes an index
-	 * value as input Post: N/A Returns: The currency object at the given value
-	 * 
-	 * pseudocode if (index < 0 || index >= count) print invalid index value and
-	 * return null LinkNode currentNode = start int i = 0 while(i < index)
-	 * currentNode = currentNode.getNext() i++ return currentNode.data()
-	 */
-
+	getCurrency purpose: return the node data at the designated index
+	pre: integer index value 
+	post: N/A
+	return: data for desired LinkNode object
+	
+	pseudocode
+	
+	if (index < 0 || index >= this.getCount())
+		System.out.println("Invalid index value");
+		return null;
+	LinkNode currentNode = start;
+		int i = 0;
+		while (i < index) 
+			currentNode = currentNode.getNext();
+			i++;
+		return currentNode.getData();
+	*/
+	
 	public Currency getCurrency(int index) {
 		if (index < 0 || index >= this.getCount()) {
 			System.out.println("Invalid index value");
@@ -93,14 +151,23 @@ public class SinglyLinkedList {
 	}
 
 	/*
-	 * Purpose: Returns the node index of the designated currency object Pre: takes
-	 * in a Currency object as a parameter Post: N/A Return: The node index of the
-	 * input Currency object
-	 * 
-	 * pseudocode: int index = 0 LinkNode currentNode = this.start; while(current !=
-	 * null) if(current.data.equals(currencyObj) return index else index++
-	 * currentNode = currentNode.next print "Object is not found" return -1
-	 */
+	findCurrency purpose: return the node index of the given Currency object 
+	pre: takes in Currency object as input 
+	post: N/A
+	return: an integer denoting the node index of the given Currency object
+	
+	pseudocode 
+	
+	int index = 0;
+		LinkNode currentNode = this.start;
+		while (currentNode != null) 
+			if (currentNode.getData().getCurrencyFrac() == currencyObj.getCurrencyFrac() & currentNode.getData().getCurrencyWhole() == currencyObj.getCurrencyWhole()) 
+				return index;
+			else 
+				index++;
+				currentNode = currentNode.getNext();
+		return -1;
+	*/
 
 	public int findCurrency(Currency currencyObj) {
 		int index = 0;
@@ -120,13 +187,18 @@ public class SinglyLinkedList {
 	}
 
 	/*
-	 * Purpose: Get the count of Currency nodes in the list Pre: N/A Post: N/A
-	 * Returns: Integer count of Currency nodes in the list
-	 * 
-	 * pseudocode
-	 * 
-	 * int i = 0; LinkNode currentNode = this.start; while(currentNode != null) i++
-	 * currentNode = currentNode.next return i;
+	countCurrency purpose: get the count of Currency nodes in the list
+	pre: N/A
+	post: N/A 
+	return: integer indicating the count of Currency nodes in the list
+	 
+	 pseudocode
+	 int i = 0;
+		LinkNode currentNode = this.start;
+		while (currentNode != null) 
+			i++;
+			currentNode = currentNode.getNext();
+		return i;
 	 */
 
 	public int countCurrency() {
@@ -141,11 +213,17 @@ public class SinglyLinkedList {
 	}
 
 	/*
-	 * isListEmpty purpose: tell whether a list is empty or not pre: N/A post: N/A
-	 * return: a bool indicating whether a list is empty or not
-	 * 
-	 * pseudocode LinkNode currentNode = this.start; if(currentNode == null) return
-	 * true return false
+	 isListEmpty purpose: tell whether a list is empty or not 
+	 pre: N/A 
+	 post: N/A
+	 return: a bool indicating whether a list is empty or not
+	 
+	 pseudocode 
+	 
+	 LinkNode currentNode = this.start; 
+	 if(currentNode == null) 
+	 	return true;
+	 return false
 	 */
 
 	public boolean isListEmpty() {
@@ -155,6 +233,41 @@ public class SinglyLinkedList {
 		}
 		return false;
 	}
+	
+	/*
+	removeCurrency purpose: removes the specified Currency object from the list
+	pre: Currency object 
+	post: removes specified Currency object from the list 
+	return: true or false 
+	
+	pseudocode for Currency object input 
+	
+	LinkNode currNode = this.start, prev = null;
+	if (currNode != null & currNode.getData().getCurrencyFrac() == key.getCurrencyFrac() & currNode.getData().getCurrencyWhole() == key.getCurrencyWhole()) 
+			this.start = currNode.getNext(); 
+			this.count--;
+			this.count--;
+			return true;
+			
+	if (currNode != null) 
+			while (currNode.getData().getCurrencyFrac() != key.getCurrencyFrac() || currNode.getData().getCurrencyWhole() != key.getCurrencyWhole()) 
+				prev = currNode;
+				if (currNode.getNext() != null) 
+					currNode = currNode.getNext();
+				else 
+					currNode = null;
+					break;
+	if (currNode != null) 
+			prev.setNext(currNode.getNext());
+			this.count--;
+ 			System.out.println(key + " found and deleted");
+			return true;
+	if (currNode == null) {
+			System.out.println(key + " not found");
+			return false;
+		return false;
+	*/ 
+
 
 	public boolean removeCurrency(Currency key) {
 		// Store head node
@@ -221,7 +334,50 @@ public class SinglyLinkedList {
 
 	}
 
-	// Method to insert a new node at a given index value
+	/*
+	addCurrency purpose: Add a Currency object to the list at desired index
+	pre: integer position and Currency object
+	post: adds Currency object to the list at desired index
+	return: N/A 
+	
+	pseudocode 
+	
+	LinkNode node = new LinkNode();
+		node.setData(data);
+		node.setNext(null);
+	if (this.start == null) 
+			if (position != 0) 
+				return;
+			else 
+				this.start = node;
+				this.end = node;
+				this.count++;
+				return;
+	if (start != null && position == 0) 
+			node.setNext(this.start);
+			this.start = node;
+			this.end = node;
+			this.count++;
+			return;
+		if (start != null && position == this.getCount() ) 
+			this.end.setNext(node);
+			this.end = node;
+			this.count++;
+			return;
+		if (start != null && position > this.getCount() ) 
+			return;
+		LinkNode current = this.getStart();
+		if (start != null && position < this.getCount() ) 
+			for (int i = 0; i < position -1 ; i++) 
+				current = current.getNext();
+			
+			node.setNext(current.getNext());
+			current.setNext(node);
+			this.count++;
+			return;
+	*/
+	
+	
 	public void addCurrency(int position, Currency data) {
 		// create new node.
 		LinkNode node = new LinkNode();
@@ -280,7 +436,21 @@ public class SinglyLinkedList {
 
 	}
 
-	// Method to print the LinkedList.
+	/*
+	printList purpose: display all the Currency objects in the list 
+	pre: N/A
+	post: N/A
+	return: a string of all the Currency objects in the list 
+	
+	pseudocode
+	
+	LinkNode currNode = this.start;
+	while (currNode != null) {
+		currNode.getData().print();
+		currNode = currNode.getNext();
+	return null;
+	*/
+	
 	public String printList() {
 		LinkNode currNode = this.start;
 
