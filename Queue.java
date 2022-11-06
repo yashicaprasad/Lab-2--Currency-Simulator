@@ -10,8 +10,8 @@ public class Queue extends SinglyLinkedList{
         super();
     }
 
-    /* enqueue
-    Purpose
+    /* 
+    enqueue Purpose
     Pre: Takes a Currency object as input
     Post: Adds input object to the end of the queue
     Return: N/A
@@ -27,7 +27,7 @@ public class Queue extends SinglyLinkedList{
     else
         while(currentNode.getNext() != null)
             currentNode = currentNode.getNext();
-            if (currentNode.getNext() == null)
+        if (currentNode.getNext() == null)
                 currentNode.setNext(newNode);
                 setEnd(newNode);
      */
@@ -40,7 +40,6 @@ public class Queue extends SinglyLinkedList{
         {
             setStart(newNode);
             setEnd(newNode);
-//            this.printList();
         }
         else
         {
@@ -52,13 +51,12 @@ public class Queue extends SinglyLinkedList{
             {
                 currentNode.setNext(newNode);
                 setEnd(newNode);
-//                this.printList();
             }
         }
     }
 
     /*
-    purpose: remove and return the Currency object from the front of the queue
+    dequeue purpose: remove and return the Currency object from the front of the queue
     pre: N/A
     post: Currency object at front of queue is removed
     return: Currency object at front of queue is returned
@@ -66,11 +64,10 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if(this.getStart() == null)
-        print("Queue is empty")
         return null;
     else
         Currency temp = this.getStart().getData();
-        removeCurrency(1);
+        removeCurrency(0);
         return temp;
      */
     public Currency dequeue()
@@ -92,7 +89,7 @@ public class Queue extends SinglyLinkedList{
     }
 
     /*
-    purpose: return copy of Currency object at front of queue
+    peekFront purpose: return copy of Currency object at front of queue
     pre: N/A
     post: N/A
     return: Currency object at front of queue
@@ -121,7 +118,7 @@ public class Queue extends SinglyLinkedList{
     }
 
     /*
-    purpose: return copy of Currency object at end of queue
+    peekRear purpose: return copy of Currency object at end of queue
     pre: N/A
     post: N/A
     return: Currency object at end of queue
@@ -129,7 +126,6 @@ public class Queue extends SinglyLinkedList{
     pseudocode
 
     if (this.getStart() == null)
-        print("Queue is empty");
         return null;
     else
         return this.getEnd().getData();
@@ -149,7 +145,7 @@ public class Queue extends SinglyLinkedList{
     }
 
     /*
-    purpose: return a string signifying the contents of the que
+    printQueue purpose: return a string signifying the contents of the que
     pre: N/A
     post: N/A
     return: a string signifying the contents of the que from front to end, tab spaced
@@ -158,12 +154,11 @@ public class Queue extends SinglyLinkedList{
 
     String queueItems = "";
     if(this.getStart() == null)
-        print("Queue is empty");
         return null;
     else
         LinkNode currentNode = this.getStart();
         while (currentNode != null)
-            queueItems = queueItems.concat(currentNode.getData().toString() + "\t");
+            queueItems = queueItems.concat(currentNode.getData().print() + "\t");
             currentNode = currentNode.getNext();
     return queueItems;
 
