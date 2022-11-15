@@ -31,7 +31,7 @@ public class BST {
         Currency tempNode = queueObj.dequeue();
     currentNode = null;
      */
-    public void breadthFirstTraversal(BSTNode root)
+    public void breadthFirst(BSTNode root)
     {
         //check if root is null
         if(root == null)
@@ -63,9 +63,70 @@ public class BST {
             tempNode.print(); // check
         }
         currentNode = null; //may be unnecessary
-
         //destroy queue
+    }
 
+    /** pre order traversal
+     * @purpose process tree in node-left-right sequence
+     * @pre root is the entry node of a tree/subtree
+     * @post each node is processed in order
+     * @return N/A
+
+     * @pseudocode
+    if(root == null)
+        print("root is null")
+        return
+
+    while(root != null)
+        root.getData().print();
+        preOrder(root.getLeft());
+        preOrder(root.getRight());
+     */
+    public void preOrder(BSTNode root)
+    {
+        if(root == null)
+        {
+            System.out.println("Root is null");
+            return;
+        }
+
+        while(root != null)
+        {
+            root.getData().print();
+            preOrder(root.getLeft());
+            preOrder(root.getRight());
+        }
+    }
+
+    /** in order traversal
+     * @purpose traverse a binary tree in left-node-right sequence
+     * @pre root is entry node of a tree/subtree
+     * @post each node is prcoessed in order
+     * @return N/A
+     * @pseudocode
+        if(root == null)
+            print("root is null")
+            return
+        if(root != null)
+            inOrder(root.getLeft());
+            root.getData().print();
+            inOrder(root.getRight());
+     */
+
+    public void inOrder(BSTNode root)
+    {
+        if(root == null)
+        {
+            System.out.println("Root is null");
+            return;
+        }
+
+        while(root!= null)
+        {
+            inOrder(root.getLeft());
+            root.getData().print();
+            inOrder(root.getRight());
+        }
     }
 
     /* A recursive function to
