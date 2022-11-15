@@ -129,6 +129,36 @@ public class BST {
         }
     }
 
+    /** post order traversal
+     * @purpose traverse a binary tree in left-right-node sequence
+     * @pre root is entry node of a tree/subtree
+     * @post each node is processed in order
+     * @return N/A
+     * @pseudocode
+        if(root == null)
+            print("root is null")
+            return
+        if(root != null)
+            postOrder(root.getLeft());
+            postOrder(root.getRight());
+            root.getData().print();
+     */
+
+    public void postOrder(BSTNode root)
+    {
+        if(root == null)
+        {
+            System.out.println("Root is null");
+            return;
+        }
+        while(root!= null)
+        {
+            postOrder(root.getLeft());
+            postOrder(root.getRight());
+            root.getData().print();
+        }
+    }
+
     /* A recursive function to
        insert a new key in BST */
     BSTNode insertRec(BSTNode insert)
