@@ -14,10 +14,6 @@ public class BST {
      * @return N/A
 
      * @pseudocode
-     if(root == null)
-        print("root is null")
-        return
-
      BSTNode currentNode = root
      queueObj = new Queue()
      while (currentNode != null)
@@ -33,24 +29,17 @@ public class BST {
      */
     public void breadthFirst(BSTNode root)
     {
-        //check if root is null
-        if(root == null)
-        {
-            System.out.println("Root is null");
-            return;
-        }
-
         //fill the queue
         BSTNode currentNode = root;
         Queue queueObj = new Queue();
         while(currentNode != null)
         {
             queueObj.enQueue(currentNode.getData());
-            if(currentNode.getLeft() != null)
+            while(currentNode.getLeft() != null)
             {
                 queueObj.enQueue(currentNode.getLeft().getData());
             }
-            if(currentNode.getRight() != null)
+            while(currentNode.getRight() != null)
             {
                 queueObj.enQueue((currentNode.getRight().getData()));
             }
@@ -60,7 +49,7 @@ public class BST {
         while (!queueObj.isListEmpty())
         {
             Currency tempNode = queueObj.dequeue();
-            tempNode.print(); // check
+            tempNode.print();
         }
         currentNode = null; //may be unnecessary
         //destroy queue
@@ -73,10 +62,6 @@ public class BST {
      * @return N/A
 
      * @pseudocode
-    if(root == null)
-        print("root is null")
-        return
-
     while(root != null)
         root.getData().print();
         preOrder(root.getLeft());
@@ -84,12 +69,6 @@ public class BST {
      */
     public void preOrder(BSTNode root)
     {
-        if(root == null)
-        {
-            System.out.println("Root is null");
-            return;
-        }
-
         while(root != null)
         {
             root.getData().print();
@@ -104,9 +83,6 @@ public class BST {
      * @post each node is prcoessed in order
      * @return N/A
      * @pseudocode
-        if(root == null)
-            print("root is null")
-            return
         if(root != null)
             inOrder(root.getLeft());
             root.getData().print();
@@ -115,12 +91,6 @@ public class BST {
 
     public void inOrder(BSTNode root)
     {
-        if(root == null)
-        {
-            System.out.println("Root is null");
-            return;
-        }
-
         while(root!= null)
         {
             inOrder(root.getLeft());
@@ -135,9 +105,6 @@ public class BST {
      * @post each node is processed in order
      * @return N/A
      * @pseudocode
-        if(root == null)
-            print("root is null")
-            return
         if(root != null)
             postOrder(root.getLeft());
             postOrder(root.getRight());
@@ -146,11 +113,6 @@ public class BST {
 
     public void postOrder(BSTNode root)
     {
-        if(root == null)
-        {
-            System.out.println("Root is null");
-            return;
-        }
         while(root!= null)
         {
             postOrder(root.getLeft());
