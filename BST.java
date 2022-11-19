@@ -144,6 +144,30 @@ public class BST {
 
     }
 
+    /** countNode
+     * @purpose count the number of nodes in the BST
+     * @pre
+     * @post number of nodes is counted
+     * @return number of nodes in the BST
+
+     pseudocode
+     if root == null
+        return 0
+     else
+        return 1 + countNode(root.getRight()) + countNode(rootgetLeft())
+     */
+    public int countNode(BSTNode root)
+    {
+        if(root == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1 + countNode(root.getRight()) + countNode(root.getLeft());
+        }
+    }
+
     /* A recursive function to
        insert a new key in BST */
     BSTNode insertRec(BSTNode insert)
