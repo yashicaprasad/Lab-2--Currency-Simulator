@@ -1,8 +1,9 @@
 /*
-Lab 3
+Lab 2
 Yashica Prasad and Lois Wong
-Purpose of the assignment: Demonstrate use of stacks, queues, and linked lists
+Purpose of the assignment: Demonstrate use of classes, polymorphism, and inheritance
  */
+
 
 public class Dollar extends Currency{
 	public Dollar(){
@@ -152,14 +153,10 @@ public class Dollar extends Currency{
 		return false
 	 */
 	public Boolean isGreater(Dollar c) {
-		if(currencyWhole == c.currencyWhole) {
-			if(currencyFrac<c.currencyFrac)
-				return true;
-			else return false;
-		}
-		else if(currencyWhole < c.currencyWhole) {
+		if(currencyWhole < c.currencyWhole) 
+			return false;
+		else if(currencyWhole > c.currencyWhole) 
 			return true;
-		}
 		return false;
 	}
 	/*
@@ -174,7 +171,7 @@ public class Dollar extends Currency{
 	}
 	 */
 	public String print() {	
-//		System.out.println(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType);
+		System.out.println(this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType);
 		return this.currencyWhole + "." + this.currencyFrac + " " + this.currencyType;
 	}
 	@Override
