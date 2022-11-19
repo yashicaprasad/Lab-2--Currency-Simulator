@@ -121,11 +121,17 @@ public class BST {
         }
     }
 
-    /** print
+    /** printTree
      * @purpose print the contents of the BST
      * @pre takes BST node as input
      * @post contents of BST is printed
      * @return N/A
+
+     pseudocode
+     if(root != null)
+        print(root.getData())
+        printTree(root.getLeft())
+        printTree(root.getRight())
      */
     public void printTree(BSTNode root)
     {
