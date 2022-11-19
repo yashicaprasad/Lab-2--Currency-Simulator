@@ -284,6 +284,96 @@ public class BST {
 		return root;
 	}
 
+	/** deleteNode
+	 * @purpose delete a BST node
+	 * @pre takes BSTNode to be deleted as input
+	 * @post node is deleted
+	 * @return the deleted node
+	 * @pseudocode
+	if(isEmpty())
+		return null
+	else if(delete.getData().isGreater())
+		root.setLeft(deleteNode(root.getLeft()));
+		return root;
+	else if(!delete.getData().isGreater())
+		root.setRight(deleteNode(root.getRight()));
+	if(root.getLeft() == null)
+		BSTNode temp = root.getRight();
+		return temp;
+	else if (root.getRight() == null)
+		BSTNode temp = root.getLeft();
+		return temp;
+	else
+		BSTNode succParent = root;
+		BSTNode succ = root.getRight();
+		while(succ.getLeft() != null)
+			succParent = succ;
+			succ = succ.getLeft();
+		if(succParent != root)
+			succParent.setLeft(succ.getRight());
+		else
+			succParent.setRight(succ.getRight());
+		root.setData(succ.getData());
+		return root;
+
+	 */
+
+	public BSTNode deleteNode(BSTNode delete)
+	{
+		//return root if tree is empty
+		if(isEmpty())
+		{
+			return root;
+		}
+		//recur down the tree
+		else if(delete.getData().isGreater())
+		{
+			root.setLeft(deleteNode(root.getLeft()));
+			return root;
+		}
+
+		else if(!delete.getData().isGreater())
+		{
+			root.setRight(deleteNode(root.getRight()));
+		}
+
+		//if node has 1 child
+		if(root.getLeft() == null)
+		{
+			BSTNode temp = root.getRight();
+			return temp;
+		}
+		else if (root.getRight() == null)
+		{
+			BSTNode temp = root.getLeft();
+			return temp;
+		}
+
+		//if node has 2 children
+		else {
+			BSTNode succParent = root;
+			//finding successor
+			BSTNode succ = root.getRight();
+			while(succ.getLeft() != null)
+			{
+				succParent = succ;
+				succ = succ.getLeft();
+			}
+			//deleting successor
+			if(succParent != root)
+			{
+				succParent.setLeft(succ.getRight());
+			}
+			else
+			{
+				succParent.setRight(succ.getRight());
+			}
+			root.setData(succ.getData());
+			return root;
+		}
+	}
+
+
 	/**
 	 * check if the BST is empty
 	 * 
