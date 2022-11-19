@@ -1,10 +1,24 @@
 public class BST {
 	private static BSTNode root;
+
+	public BSTNode getRoot()
+	{
+		return root;
+	}
+
+	public void setRoot(BSTNode root)
+	{
+		this.root = root;
+	}
 	 
     // Constructor
-    BST() { this.root = null; }
+    BST() {
+		this.root = null;
+	}
  
-    BST(double value) { this.root = new BSTNode(new Dollar(value)); }
+    BST(double value) {
+		this.root = new BSTNode(new Dollar(value));
+	}
 
     /** breadth-first traversal
      * @purpose process tree using breadth-first traversal
@@ -26,24 +40,27 @@ public class BST {
         Currency tempNode = queueObj.dequeue();
     currentNode = null;
      */
-    public void breadthFirst(BSTNode node)
+
+	public void breadthFirst()
+	{
+		breadthFirst(root);
+	}
+    public void breadthFirst(BSTNode root)
     {
         //fill the queue
-        BSTNode currentNode = node;
+        BSTNode currentNode = root;
         Queue queueObj = new Queue();
-		if(currentNode == null)
+		while(currentNode != null)
 		{
-			return;
-		}
-
-		queueObj.enQueue(currentNode.getData());
-		if(currentNode.getLeft() != null)
-		{
-			queueObj.enQueue(currentNode.getLeft().getData());
-		}
-		if(currentNode.getRight() != null)
-		{
-			queueObj.enQueue((currentNode.getRight().getData()));
+			queueObj.enQueue(currentNode.getData());
+			while(currentNode.getLeft() != null)
+			{
+				queueObj.enQueue((currentNode.getLeft().getData()));
+			}
+			while(currentNode.getRight() != null)
+			{
+				queueObj.enQueue(currentNode.getRight().getData());
+			}
 		}
 
         //process by dequeue
