@@ -1,7 +1,5 @@
 public class BST {
-
-<<<<<<< HEAD
-	private BSTNode root;
+	private static BSTNode root;
 	 
     // Constructor
     BST() { this.root = null; }
@@ -28,23 +26,25 @@ public class BST {
         Currency tempNode = queueObj.dequeue();
     currentNode = null;
      */
-    public void breadthFirst(BSTNode root)
+    public void breadthFirst(BSTNode node)
     {
         //fill the queue
-        BSTNode currentNode = root;
+        BSTNode currentNode = node;
         Queue queueObj = new Queue();
-        while(currentNode != null)
-        {
-            queueObj.enQueue(currentNode.getData());
-            while(currentNode.getLeft() != null)
-            {
-                queueObj.enQueue(currentNode.getLeft().getData());
-            }
-            while(currentNode.getRight() != null)
-            {
-                queueObj.enQueue((currentNode.getRight().getData()));
-            }
-        }
+		if(currentNode == null)
+		{
+			return;
+		}
+
+		queueObj.enQueue(currentNode.getData());
+		if(currentNode.getLeft() != null)
+		{
+			queueObj.enQueue(currentNode.getLeft().getData());
+		}
+		if(currentNode.getRight() != null)
+		{
+			queueObj.enQueue((currentNode.getRight().getData()));
+		}
 
         //process by dequeue
         while (!queueObj.isListEmpty())
@@ -58,68 +58,83 @@ public class BST {
 
     /** pre order traversal
      * @purpose process tree in node-left-right sequence
-     * @pre root is the entry node of a tree/subtree
+     * @pre root node is the entry node of a tree/subtree
      * @post each node is processed in order
      * @return N/A
 
      * @pseudocode
-    while(root != null)
-        root.getData().print();
-        preOrder(root.getLeft());
-        preOrder(root.getRight());
+    if(node == null)
+		return
+	node.getData().print();
+	preOrder(node.getLeft());
+	preOrder(node.getRight());
      */
-    public void preOrder(BSTNode root)
+
+	public void preOrder() {
+		preOrder(root);
+	}
+    public void preOrder(BSTNode node)
     {
-        while(root != null)
+        if(node == null)
         {
-            root.getData().print();
-            preOrder(root.getLeft());
-            preOrder(root.getRight());
+			return;
         }
+		node.getData().print();
+		preOrder(node.getLeft());
+		preOrder(node.getRight());
     }
 
     /** in order traversal
      * @purpose traverse a binary tree in left-node-right sequence
-     * @pre root is entry node of a tree/subtree
+     * @pre root node is entry node of a tree/subtree
      * @post each node is prcoessed in order
      * @return N/A
      * @pseudocode
-        if(root != null)
-            inOrder(root.getLeft());
-            root.getData().print();
-            inOrder(root.getRight());
+        if(node != null)
+            inOrder(node.getLeft());
+            ronodeot.getData().print();
+            inOrder(node.getRight());
      */
 
-    public void inOrder(BSTNode root)
+	public void inOrder() {
+		inOrder(root);
+	}
+    public void inOrder(BSTNode node)
     {
-        while(root!= null)
-        {
-            inOrder(root.getLeft());
-            root.getData().print();
-            inOrder(root.getRight());
-        }
+		if (node == null)
+		{
+			return;
+		}
+		inOrder(node.getLeft());
+		node.getData().print();
+		inOrder(node.getRight());
     }
 
     /** post order traversal
      * @purpose traverse a binary tree in left-right-node sequence
-     * @pre root is entry node of a tree/subtree
+     * @pre root node is entry node of a tree/subtree
      * @post each node is processed in order
      * @return N/A
      * @pseudocode
-        if(root != null)
-            postOrder(root.getLeft());
-            postOrder(root.getRight());
-            root.getData().print();
+        if(node = null)
+			return
+		postOrder(node.getLeft());
+        postOrder(node.getRight());
+		node.getData().print();
      */
 
-    public void postOrder(BSTNode root)
+	public void postOrder()
+	{
+		postOrder(root);
+	}
+	public void postOrder(BSTNode node)
     {
-        while(root!= null)
-        {
-            postOrder(root.getLeft());
-            postOrder(root.getRight());
-            root.getData().print();
-        }
+        if(node == null) {
+			return;
+		}
+		postOrder(node.getLeft());
+		postOrder(node.getRight());
+		node.getData().print();
     }
 
     /** printTree
@@ -129,155 +144,21 @@ public class BST {
      * @return N/A
 
      pseudocode
-     if(root != null)
-        print(root.getData())
-        printTree(root.getLeft())
-        printTree(root.getRight())
+     if(node != null)
+        print(node.getData())
+        printTree(node.getLeft())
+        printTree(node.getRight())
      */
-    public void printTree(BSTNode root)
+    public void printTree(BSTNode node)
     {
-        if(root != null)
+        if(node != null)
         {
-            System.out.println(root.getData());
-            printTree(root.getLeft());
-            printTree(root.getRight());
+            System.out.println(node.getData());
+            printTree(node.getLeft());
+            printTree(node.getRight());
         }
 
     }
-
-=======
-	private static BSTNode root;
-
-	public BSTNode getRoot() {
-		return root;
-	}
-
-	public void setRoot(BSTNode root) {
-		this.root = root;
-	}
-
-	/**
-	 * BST constructors
-	 */
-	BST() {
-		this.root = null;
-	}
-
-	BST(double value) {
-		this.root = new BSTNode(new Dollar(value));
-	}
-
-	/**
-	 * breadth-first traversal
-	 * 
-	 * @purpose process tree using breadth-first traversal
-	 * @pre root is node to be processed
-	 * @post tree is processed
-	 * @return N/A
-	 * @pseudocode BSTNode currentNode = root queueObj = new Queue() while
-	 *             (currentNode != null) queueObj.enQueue(currentNode.getData());
-	 *             if(currentNode.getLeft() != null)
-	 *             queueObj.enQueue(currentNode.getLeft().getData());
-	 *             if(currentNode.getRight() != null)
-	 *             queueObj.enQueue((currentNode.getRight().getData())); while
-	 *             (!queueObj.isListEmpty()) Currency tempNode = queueObj.dequeue();
-	 *             currentNode = null;
-	 */
-	public void breadthFirst() {
-		breadthFirst(root);
-	}
-
-	public void breadthFirst(BSTNode root) {
-		// fill the queue
-		BSTNode currentNode = root;
-		Queue queueObj = new Queue();
-		while (currentNode != null) {
-			queueObj.enQueue(currentNode.getData());
-			while (currentNode.getLeft() != null) {
-				queueObj.enQueue(currentNode.getLeft().getData());
-			}
-			while (currentNode.getRight() != null) {
-				queueObj.enQueue((currentNode.getRight().getData()));
-			}
-		}
-
-		// process by dequeue
-		while (!queueObj.isListEmpty()) {
-			Currency tempNode = queueObj.dequeue();
-			tempNode.print();
-		}
-		currentNode = null; // may be unnecessary
-		// destroy queue
-	}
-
-	/**
-	 * pre order traversal
-	 * 
-	 * @purpose process tree in node-left-right sequence
-	 * @pre root is the entry node of a tree/subtree
-	 * @post each node is processed in order
-	 * @return N/A
-	 * @pseudocode while(root != null) root.getData().print();
-	 *             preOrder(root.getLeft()); preOrder(root.getRight());
-	 */
-	public void preOrder() {
-		preOrder(root);
-	}
-
-	private void preOrder(BSTNode node) {
-		if (node == null)
-			return;
-		node.getData().print();
-		preOrder(node.getLeft());
-		preOrder(node.getRight());
-	}
-
-	/**
-	 * in order traversal
-	 * 
-	 * @purpose traverse a binary tree in left-node-right sequence
-	 * @pre root is entry node of a tree/subtree
-	 * @post each node is prcoessed in order
-	 * @return N/A
-	 * @pseudocode if(root != null) inOrder(root.getLeft()); root.getData().print();
-	 *             inOrder(root.getRight());
-	 */
-	public void inOrder() {
-		inOrder(root);
-	}
-
-	private void inOrder(BSTNode node) {
-		if (node == null)
-			return;
-
-		inOrder(node.getLeft());
-		node.getData().print();
-		inOrder(node.getRight());
-	}
-
-	/**
-	 * post order traversal
-	 * 
-	 * @purpose traverse a binary tree in left-right-node sequence
-	 * @pre root is entry node of a tree/subtree
-	 * @post each node is processed in order
-	 * @return N/A
-	 * @pseudocode if(root != null) postOrder(root.getLeft());
-	 *             postOrder(root.getRight()); root.getData().print();
-	 */
-	public void postOrder() {
-		postOrder(root);
-	}
-
-	private void postOrder(BSTNode node) {
-		if (node == null)
-			return;
-
-		postOrder(node.getLeft());
-		postOrder(node.getRight());
-		node.getData().print();
-	}
-
 	/**
 	 * search for a Dollar object
 	 * 
@@ -311,36 +192,29 @@ public class BST {
 
 		return false;
 	}
-	
->>>>>>> 4dd25b3a8d95a60f9fadc9f18c021f3076f50f1e
-    /** countNode
+	/** countNode
      * @purpose count the number of nodes in the BST
      * @pre
      * @post number of nodes is counted
-     * @return number of nodes in the BST
-<<<<<<< HEAD
 
-=======
->>>>>>> 4dd25b3a8d95a60f9fadc9f18c021f3076f50f1e
      pseudocode
-     if root == null
+     if node == null
         return 0
      else
-        return 1 + countNode(root.getRight()) + countNode(rootgetLeft())
+        return 1 + countNode(node.getRight()) + countNode(node.getLeft())
      */
-    public int countNode(BSTNode root)
+    public int countNode(BSTNode node)
     {
-        if(root == null)
+        if(node == null)
         {
             return 0;
         }
         else
         {
-            return 1 + countNode(root.getRight()) + countNode(root.getLeft());
+            return 1 + countNode(node.getRight()) + countNode(node.getLeft());
         }
     }
 
-<<<<<<< HEAD
     /* A recursive function to
        insert a new key in BST */
     BSTNode insertRec(BSTNode insert)
@@ -361,7 +235,7 @@ public class BST {
         /* return the (unchanged) BSTNode pointer */
         return root;
     }
-=======
+
 
 	/**
 	 * insert a Dollar object
@@ -408,5 +282,4 @@ public class BST {
 			return true;
 		return false;
 	}
->>>>>>> 4dd25b3a8d95a60f9fadc9f18c021f3076f50f1e
 }
