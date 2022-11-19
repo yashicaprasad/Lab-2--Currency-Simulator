@@ -121,6 +121,23 @@ public class BST {
         }
     }
 
+    /** print
+     * @purpose print the contents of the BST
+     * @pre takes BST node as input
+     * @post contents of BST is printed
+     * @return N/A
+     */
+    public void printTree(BSTNode root)
+    {
+        if(root != null)
+        {
+            System.out.println(root.getData());
+            printTree(root.getLeft());
+            printTree(root.getRight());
+        }
+
+    }
+
     /* A recursive function to
        insert a new key in BST */
     BSTNode insertRec(BSTNode insert)
